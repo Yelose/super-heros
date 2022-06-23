@@ -1,30 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "@/components/HelloWorld.vue";
+import Header from "./components/Header.vue";
 </script>
 
 <template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kenia&family=KoHo:wght@400;600&family=Koh+Santepheap:wght@700&display=swap" rel="stylesheet">  
   <header>
-    <section>
-      <div class="logo">
-        <img src="../src/assets/logoScrummers.png" alt="">
-      </div>
-      <div>
-        <h1>SUPER HERO MULTIVERSE</h1>
-      </div>
-      <div>
-        <input type="text" placeholder="Search">
-      </div>
-    </section>
 
+    <Header></Header>
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/stats">Stats</RouterLink>
-      </nav>
     </div>
   </header>
 
@@ -32,14 +19,23 @@ import HelloWorld from "@/components/HelloWorld.vue";
 </template>
 
 <style>
-@import "@/assets/base.css";
+/* @import "@/assets/base.css"; */
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  min-height: 100vh;
+  background-image: url("./assets/img/heroesfondo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
 #app {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
 }
 
 header {
@@ -47,51 +43,8 @@ header {
   max-height: 100vh;
 }
 
-.logo {
-  display: flex;
-  width: 200px;
-  height: 200px;
-}
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   body {
     display: flex;
     place-items: center;
@@ -127,5 +80,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
+} */
 </style>

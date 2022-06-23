@@ -1,12 +1,10 @@
 <script>
-
+import Races from "../components/Races.vue";
 
 </script>
-
 <template>
-    <h1>Home</h1>
+    <Races></Races>
 </template>
-
 <style lang="scss">
 
 </style>
