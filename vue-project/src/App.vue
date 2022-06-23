@@ -5,13 +5,17 @@ import HelloWorld from "@/components/HelloWorld.vue";
 
 <template>
   <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
+    <section>
+      <div class="logo">
+        <img src="../src/assets/logoScrummers.png" alt="">
+      </div>
+      <div>
+        <h1>SUPER HERO MULTIVERSE</h1>
+      </div>
+      <div>
+        <input type="text" placeholder="Search">
+      </div>
+    </section>
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
@@ -44,8 +48,9 @@ header {
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  display: flex;
+  width: 200px;
+  height: 200px;
 }
 
 a,

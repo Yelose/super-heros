@@ -20,7 +20,7 @@ const router = createRouter({
     {
       path: "/stats",
       name: "Stats",
-      component: () => import("../views/StatsView.vue"),
+      component: () => import("../components/Stats.vue"),
     }
   ],
 });
