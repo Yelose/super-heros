@@ -21,5 +21,11 @@ h1{
     word-spacing: 1vw;
     letter-spacing: 2px;
 }
+h2{
+    font-size: clamp(20px, 2vw, 33px);    
+}
+h3{
+    font-size: clamp(18px, 1.8vw, 25px);
+}
 
     // background-color: $text-gold;

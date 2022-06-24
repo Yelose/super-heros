@@ -43,6 +43,7 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
 ### SASS installation
 
 npm i sass

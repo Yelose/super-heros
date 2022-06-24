@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import Header from "./components/Header.vue";
+import MyCards from "./components/MyCards.vue";
 </script>
 
 <template>
@@ -8,12 +9,11 @@ import Header from "./components/Header.vue";
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kenia&family=KoHo:wght@400;600&family=Koh+Santepheap:wght@700&display=swap" rel="stylesheet">  
   <header>
-
     <Header></Header>
-    <div class="wrapper">
-
-    </div>
   </header>
+  <aside>
+    <MyCards></MyCards>
+  </aside>
 
   <RouterView />
 </template>
@@ -28,10 +28,11 @@ import Header from "./components/Header.vue";
 }
 
 body{
+  margin-top: calc(5vw + 10vh);
   min-height: 100vh;
   background-image: url("./assets/img/heroesfondo.png");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: left;
   background-attachment: fixed;
   background-size: cover;
 }

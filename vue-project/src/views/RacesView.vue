@@ -1,5 +1,5 @@
-<script>
-import Races from "../components/Races.vue";
+<script setup>
+import Races from "@/components/Races.vue";
 
 </script>
 <template>
