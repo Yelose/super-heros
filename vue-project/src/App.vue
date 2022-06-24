@@ -18,14 +18,15 @@ import Header from "./components/Header.vue";
   <RouterView />
 </template>
 
-<style>
-/* @import "@/assets/base.css"; */
+<style lang="scss">
+@use "./assets/base";
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body{
   min-height: 100vh;
   background-image: url("./assets/img/heroesfondo.png");
