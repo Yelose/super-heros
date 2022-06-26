@@ -27,5 +27,9 @@ h2{
 h3{
     font-size: clamp(18px, 1.8vw, 25px);
 }
+h4 {
+    font-size: clamp(16px, 1.6vw, 22px);
+    font-family: 'Kelly Slab', cursive;
+}
 
     // background-color: $text-gold;

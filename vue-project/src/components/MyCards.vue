@@ -25,7 +25,6 @@
         margin: 2vh 1vw 0 0;
         height: 75vh;
         padding: 1vh 2vw;
-        background-color: black;
         overflow: auto;
         header{
             display: flex;
