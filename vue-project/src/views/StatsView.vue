@@ -1,9 +1,7 @@
-<script>
-import Stats from "@/components/Stats.vue";
+<script setup>
+    import Stats from "@/components/Stats.vue";
 </script>
 
 <template>
-    <Stats>
-        
-    </Stats>
+    <Stats></Stats>
 </template>
