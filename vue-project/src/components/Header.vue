@@ -13,9 +13,6 @@
           <h1>SUPER HERO MULTIVERSE</h1>
         </div>
       </section>
-      <div>
-        <input type="text" placeholder="Search">
-      </div>
     </main>
     <nav>
       <RouterLink to="/">Home</RouterLink>
@@ -28,10 +25,13 @@
 </template>
 <style lang="scss">
  .header-container {
-   background-color: rgba(0, 0, 0, 0.7);
+   background-color: rgba(0, 0, 0, 0.85);
    display: flex;
-   flex-direction: column;
-   width: 100vw;
+   flex-flow: column wrap;
+   width: 100%;
+   position: fixed;
+   top: 0;
+   z-index: 100;
  }
 
  section {
@@ -43,17 +43,10 @@
 
      section {
        display: flex;
-       flex-direction: row;
+       flex-flow: row nowrap;
        align-items: center;
      }
 
-     input {
-       display: flex;
-       justify-self: flex-end;
-       border-radius: 4px;
-       padding: calc(.5vw + .5vh);
-       margin-right: 3vw;
-     }
    }
 
    .logo {
@@ -73,7 +66,7 @@
   a {
     margin: 0 2vw;
     padding: 0 2vw;
-    font-size: clamp(20px, 2.5vw, 33px);
+    font-size: clamp(20px, 2vw, 33px);
     color: #fff;
     text-decoration: none;
   }
@@ -89,6 +82,7 @@
    display: flex;
    width: 200px;
    height: 200px;
+   margin-left: calc(2vw + 1vh);
  }
 
 
