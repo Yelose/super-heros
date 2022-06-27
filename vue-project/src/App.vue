@@ -25,6 +25,9 @@ import MyCards from "./components/MyCards.vue";
   padding: 0;
   box-sizing: border-box;
 }
+html{
+  cursor: url("/src/assets/img/cursorflecha.png"), pointer;
+}
 
 body{
   margin-top: calc(5vw + 10vh);
@@ -34,7 +37,12 @@ body{
   background-position: left;
   background-attachment: fixed;
   background-size: cover;
+  
 }
+a, a:hover, .card-frame{
+   cursor: url("/src/assets/img/cursordedo.png"), help;
+}
+
 #app {
   margin: 0 auto;
 }
