@@ -16,6 +16,7 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 ```
 ## Google Fonts
+font-family: 'Kelly Slab', cursive;
 font-family: 'Kenia', cursive;
 font-family: 'Koh Santepheap', cursive;
 font-family: 'KoHo', sans-serif;

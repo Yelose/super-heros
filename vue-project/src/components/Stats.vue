@@ -5,7 +5,7 @@
                 name: "Intelligence",
                 initials: "INT",
                 description: "controls a character's ability to comprehend foreign languages and their skill in magic. Intelligence controls how many skill points the character gets at level up. It also controls the rate at which experience points are earned, or the amount needed to level up.",
-                image: "./assets/img/staff.png",
+                image: "/src/assets/img/staff.png",
                 color: "#FFF27D"
             },
             {
@@ -58,7 +58,7 @@
             <p><span>{{item.name}}: </span>{{item.description}}</p>
         </section>
         <section>
-            <img src="../assets/img/staff.png">
+            <img :src="item.image">
         </section>
     </div>
 </main>
