@@ -17,7 +17,7 @@ export default {
         filterSuperHeroes(superHeroes) {
             return superHeroes.filter(p =>
                 p.name.toLowerCase().indexOf(this.superHeroSearch.toLowerCase()) != -1 &&
-                !(this.$root.favourites.find(q => q.id == p.id))
+                !(this.$root.favorites.find(q => q.id == p.id))
             )
         },
         shortenSuperHeroes(superHeroes) {
@@ -27,8 +27,8 @@ export default {
             this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
             this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
         },
-        selectFavourite(superHero) {
-            this.$root.favourites.push(superHero)
+        selectFavorite(superHero) {
+            this.$root.favorites.push(superHero)
             this.searchSuperHeroes()
         },
         getRaces() {
@@ -98,7 +98,7 @@ export default {
 
     },
     mounted: async function () {
-        this.$root.favourites = this.$root.favourites || []
+        this.$root.favorites = this.$root.favorites || []
         this.superHeroes = await this.loadSuperHeroes()
         this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
         this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
@@ -109,40 +109,41 @@ export default {
 </script>
 
 <template>
-    <div class="home-container">
-        <input type="text" placeholder="search" v-on:keyup="searchSuperHeroes()" v-model="superHeroSearch" />
-        <div class="card-container" v-bind:style="{ background: superHero.color }" v-for="superHero in superHeroesShort"
-            v-on:click="selectFavourite(superHero)">
-            <div v-on:click="" class="card-frame">
-                <h4>{{ superHero.name }}</h4>
-                <img class="hero-img-md" v-bind:src="superHero.images.sm" alt="">
-                <div class="card-stats-container">
-                    <section class="stat-bar">
-                        <img class="stat-img" src="/src/assets/img/espada2.png" alt="">
-                        <div class="colorless-bar">
-                            <div class="attack-bar" v-bind:style="{ width: superHero.powerstats.strength + '%' }"></div>
-                        </div>
-                    </section>
-                    <section class="stat-bar">
-                        <img class="stat-img" src="/src/assets/img/escudo2.png" alt="">
-                        <div class="colorless-bar">
-                            <div class="def-bar" v-bind:style="{ width: superHero.powerstats.durability + '%' }"></div>
-                        </div>
-                    </section>
+    <main>
+        <div class="home-container">
+            <input type="text" placeholder="search" v-on:keyup="searchSuperHeroes()" v-model="superHeroSearch" />
+            <div class="card-container" v-bind:style="{ background: superHero.color }" v-for="superHero in superHeroesShort"
+                v-on:click="selectFavorite(superHero)">
+                <div v-on:click="" class="card-frame">
+                    <h4>{{ superHero.name }}</h4>
+                    <img class="hero-img-md" v-bind:src="superHero.images.sm" alt="">
+                    <div class="card-stats-container">
+                        <section class="stat-bar">
+                            <img class="stat-img" src="/src/assets/img/espada2.png" alt="">
+                            <div class="colorless-bar">
+                                <div class="attack-bar" v-bind:style="{ width: superHero.powerstats.strength + '%' }"></div>
+                            </div>
+                        </section>
+                        <section class="stat-bar">
+                            <img class="stat-img" src="/src/assets/img/escudo2.png" alt="">
+                            <div class="colorless-bar">
+                                <div class="def-bar" v-bind:style="{ width: superHero.powerstats.durability + '%' }"></div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </template>
 
 <style lang="scss">
 .home-container {
-    padding-left: 4vw;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    margin-top: calc(5vw + 15vh);
-    width: 70vw;
+    width: calc(83vw - 150px);
+    padding: 3vw;
 
     input {
         position: fixed;
