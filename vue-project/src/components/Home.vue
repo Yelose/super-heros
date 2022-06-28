@@ -5,6 +5,7 @@ export default {
             superHeroes: [],
             superHeroSearch: '',
             superHeroesShort: [],
+            // audio: "/src/assets/audio/clin.mp3",
         }
     },
     methods: {
@@ -16,7 +17,7 @@ export default {
         filterSuperHeroes(superHeroes) {
             return superHeroes.filter(p =>
                 p.name.toLowerCase().indexOf(this.superHeroSearch.toLowerCase()) != -1 &&
-                !(this.$root.favourites.find(q => q.id == p.id))
+                !(this.$root.favorites.find(q => q.id == p.id))
             )
         },
         shortenSuperHeroes(superHeroes) {
@@ -26,39 +27,78 @@ export default {
             this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
             this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
         },
-        selectFavourite(superHero) {
-            this.$root.favourites.push(superHero)
+        selectFavorite(superHero) {
+            this.$root.favorites.push(superHero)
             this.searchSuperHeroes()
         },
         getRaces() {
             let races = []
-
-            // for (let superHero of this.superHeroes) {
-            //     let found = false
-            //     for (let race of races) {
-            //         if (race == superHero.race) {
-            //             found = true;
-            //             break
-            //         }
-            //     }
-            //     if (!found) {
-            //         races.push(superHero.race)
-            //     }
-            // }
-
+            let mixedRace = ["Human / Radiation", "Human / Clone", "Human / Cosmic",
+                "Human / Altered", "Human-Kree", "Human-Vuldarian", "Human-Vulcan", "Human-Spartoi", "Mutant / Clone"]
+            let humanoids = ["Human", "Icthyo Sapien", "Inhuman", "Metahuman", "Amazon", "Mutant", "Tamaranean",
+                "Talokite", "Clone", "Spartoi", "Strontian", "Black Racer", "Alpha"]
+            let robots = ["Cyborg", "Android", "Flora Colossus"]
+            let animals = ["Gorilla", "Animal", "Yoda's species", "Kaiju"]
+            let deadOnes = ["Vampire", "Demon", "Parademon", "Zombie", "Korugaran"]
+            let aliens = ["Xenomorph XX121", "Alien", "Martian", "Yautja", "Luphomoid", "Czarnian",
+                "Bolovaxian", "Gungan", "Asgardian", "Rodian", "Zen-Whoberian", "Kakarantharaian", "Kryptonian", "Dathomirian Zabrak"]
+            let animated = ["Saiyan", "Bizarro", "Neyaphem", "Atlantean", "Symbiote", "Cosmic Entity", "Ungaran"]
+            let gods = ["Demi-God", "Eternal", "New God", "Frost Giant", "Maiar", "God / Eternal"]
             this.superHeroes.forEach(superHero => {
                 // races.find se considera true, si encuentra una, y false si no.
                 if (!races.find(p => p == superHero.appearance.race)) {
-                    if (superHero.appearance.race != null) {
-                        races.push(superHero.appearance.race)
+                    if (superHero.appearance.race == null) {
+                        // races.push(superHero.appearance.race)
+                        superHero.color = "#001025"
+                    }
+                    if (mixedRace.indexOf(superHero.appearance.race) != -1) {
+                        superHero.color = "#0D221B"
+                    }
+                    if (humanoids.indexOf(superHero.appearance.race) != -1) {
+                        superHero.color = "black"
+                    }
+                    if (robots.indexOf(superHero.appearance.race) != -1) {
+                        superHero.color = "#404040"
+                    }
+                    if (animals.indexOf(superHero.appearance.race) != -1) {
+                        superHero.color = "white"
+                    }
+                    if (deadOnes.indexOf(superHero.appearance.race) != -1) {
+                        superHero.color = "#500808"
+                    }
+                    if (aliens.indexOf(superHero.appearance.race) != -1) {
+                        superHero.color = "#000F06"
+                    }
+                    if (animated.indexOf(superHero.appearance.race) != -1) {
+                        superHero.color = "#1B001B"
+                    }
+                    if (gods.indexOf(superHero.appearance.race) != -1){
+                        superHero.color = "#251500"
                     }
                 }
             })
             return races
-        }
+        },
+        // giveColor(hero) {
+        //     color = ""
+        //     let mestizosColor = "#260E08"
+        //     let mestizos = ["Human / Radiation", "Human / Clone", "Human / Cosmic", "Human / Altered", "Human / Altered"]
+        //     this.superHeroes.forEach(superHero => {
+        //         if (!color.find(p => p == superHero.appearance.race)){
+        //             if (superHero.appearance.race == null){
+        //                 this.$root.superHero.color = "gray"
+        //             }
+        //         }
+        //     })
+        //     return color
+        // },
+        // audioPlayClin() {
+        //     let audio = document.createElement()
+        // }
+
     },
     mounted: async function () {
-        this.$root.favourites = this.$root.favourites || []
+        this.$root.favorites = this.$root.favorites || []
         this.superHeroes = await this.loadSuperHeroes()
         this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
         this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
@@ -69,39 +109,41 @@ export default {
 </script>
 
 <template>
-    <div class="home-container">
-        <input type="text" placeholder="search" v-on:keyup="searchSuperHeroes()" v-model="superHeroSearch" />
-        <div class="card-container" v-for="superHero in superHeroesShort" v-on:click="selectFavourite(superHero)">
-            <div class="card-frame">
-                <h4>{{ superHero.name }}</h4>
-                <img class="hero-img-md" v-bind:src="superHero.images.sm" alt="">
-                <div class="card-stats-container">
-                    <section class="stat-bar">
-                        <img class="stat-img" src="/src/assets/img/espada2.png" alt="">
-                        <div class="colorless-bar">
-                            <div class="attack-bar" v-bind:style="{width: superHero.powerstats.strength + '%'}"></div>
-                        </div>
-                    </section>
-                    <section class="stat-bar">
-                        <img class="stat-img" src="/src/assets/img/escudo2.png" alt="">
-                        <div class="colorless-bar">
-                            <div class="def-bar" v-bind:style="{width: superHero.powerstats.durability + '%'}"></div>
-                        </div>
-                    </section>
+    <main>
+        <div class="home-container">
+            <input type="text" placeholder="search" v-on:keyup="searchSuperHeroes()" v-model="superHeroSearch" />
+            <div class="card-container" v-bind:style="{ background: superHero.color }" v-for="superHero in superHeroesShort"
+                v-on:click="selectFavorite(superHero)">
+                <div v-on:click="" class="card-frame">
+                    <h4>{{ superHero.name }}</h4>
+                    <img class="hero-img-md" v-bind:src="superHero.images.sm" alt="">
+                    <div class="card-stats-container">
+                        <section class="stat-bar">
+                            <img class="stat-img" src="/src/assets/img/espada2.png" alt="">
+                            <div class="colorless-bar">
+                                <div class="attack-bar" v-bind:style="{ width: superHero.powerstats.strength + '%' }"></div>
+                            </div>
+                        </section>
+                        <section class="stat-bar">
+                            <img class="stat-img" src="/src/assets/img/escudo2.png" alt="">
+                            <div class="colorless-bar">
+                                <div class="def-bar" v-bind:style="{ width: superHero.powerstats.durability + '%' }"></div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </template>
 
 <style lang="scss">
 .home-container {
-    padding-left: 4vw;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    margin-top: calc(5vw + 15vh);
-    width: 70vw;
+    width: calc(83vw - 150px);
+    padding: 3vw;
 
     input {
         position: fixed;
@@ -115,7 +157,7 @@ export default {
     }
 
     .card-container {
-        background-color: rgb(18, 18, 84);
+        background: rgb(53, 53, 53);
         width: 14vw;
         height: 22vw;
         margin-bottom: 6vh;
@@ -162,15 +204,17 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding-bottom: 0.5vw;
-        
+
         .stat-img {
             width: 1vw;
             height: 1vw;
         }
-        .attack-bar{
+
+        .attack-bar {
             background-color: #EC1818;
             height: 100%;
         }
+
         .colorless-bar {
             width: 80%;
             height: 100%;
@@ -178,7 +222,8 @@ export default {
             border-radius: 2vw;
             overflow: hidden;
         }
-        .def-bar{
+
+        .def-bar {
             background-color: blue;
             height: 100%;
         }

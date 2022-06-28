@@ -12,7 +12,7 @@
                 name: "Strength",
                 initials: "STR",
                 description: "is a  measure of how physically strong a character is, it controls the power and damage of melee attacks, the maximum weight the character can carry, and hit points. Armor and weapons might also have a Strength requirement to use them. A measure of how sturdy a character is",
-                image: "src:blablabl",
+                image: "/src/assets/img/bla.com",
                 color: "#DF5F5F"
             },
             {
@@ -69,12 +69,11 @@
 main {
     display: flex;
     flex-flow: column;
+    width: calc(83vw - 150px);
     .stats-container {
         background-color: rgba(0, 0, 0, 0.7);
         display: flex;
         align-items: center;
-        width: calc(75% - 80px);
-        margin: 4vh 0 0vh 8%;
         padding: calc(.5vw + 1vh);
         section{
             display: flex;
