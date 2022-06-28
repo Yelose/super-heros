@@ -8,3 +8,6 @@
         {{superHero.name}}
     </div>
 </template>
+<style>
+
+</style>

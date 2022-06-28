@@ -30,6 +30,11 @@ export default {
             this.$root.favourites.push(superHero)
             this.searchSuperHeroes()
         },
+          selectMyCards(superHero) {
+            this.$root.MyCards.push(superHero)
+            this.searchSuperHeroes()
+        },
+
         getRaces() {
             let races = []
 
@@ -59,6 +64,7 @@ export default {
     },
     mounted: async function () {
         this.$root.favourites = this.$root.favourites || []
+        this.$root.MyCards = this.$root.MyCards || []
         this.superHeroes = await this.loadSuperHeroes()
         this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
         this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
