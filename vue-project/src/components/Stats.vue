@@ -75,6 +75,7 @@ main {
         display: flex;
         align-items: center;
         padding: calc(.5vw + 1vh);
+        margin: 3vh 3vh 0 5vw;
         section{
             display: flex;
             .initials{

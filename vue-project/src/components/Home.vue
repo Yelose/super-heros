@@ -55,13 +55,13 @@ export default {
                         superHero.color = "#0D221B"
                     }
                     if (humanoids.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "black"
+                        superHero.color = "#000000"
                     }
                     if (robots.indexOf(superHero.appearance.race) != -1) {
                         superHero.color = "#404040"
                     }
                     if (animals.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "white"
+                        superHero.color = "FFFFFF"
                     }
                     if (deadOnes.indexOf(superHero.appearance.race) != -1) {
                         superHero.color = "#500808"
@@ -144,6 +144,7 @@ export default {
     justify-content: space-evenly;
     width: calc(83vw - 150px);
     padding: 3vw;
+    gap: 1%;
 
     input {
         position: fixed;
@@ -160,9 +161,10 @@ export default {
         background: rgb(53, 53, 53);
         width: 14vw;
         height: 22vw;
-        margin-bottom: 6vh;
+        margin-bottom: 2%;
         border-radius: 4%;
-
+        max-width: 130px;
+        max-height: 205px;
         .card-frame {
             width: 100%;
             height: 100%;
@@ -177,16 +179,15 @@ export default {
             border-radius: 4%;
 
             h4 {
-                margin-top: 2.7vw;
-                font-size: 1.5vw;
+                margin-top: 17%;
+                font-size: clamp(8px, 1.5vw, 15px);
                 color: #D9D9D9;
                 font-weight: 100;
             }
 
             .hero-img-md {
-                width: 9vw;
-                height: 11vw;
-                margin-bottom: 0.5vw;
+                width: 60%;
+                margin-bottom: 4%;
             }
         }
     }
@@ -203,11 +204,10 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-bottom: 0.5vw;
+        padding-bottom: 2%;
 
         .stat-img {
-            width: 1vw;
-            height: 1vw;
+            width: 10%;
         }
 
         .attack-bar {
