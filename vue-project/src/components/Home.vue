@@ -37,13 +37,11 @@ export default {
                 "Human / Altered", "Human-Kree", "Human-Vuldarian", "Human-Vulcan", "Human-Spartoi", "Mutant / Clone"]
             let humanoids = ["Human", "Icthyo Sapien", "Inhuman", "Metahuman", "Amazon", "Mutant", "Tamaranean",
                 "Talokite", "Clone", "Spartoi", "Strontian", "Black Racer", "Alpha"]
-            let robots = ["Cyborg", "Android", "Flora Colossus"]
-            let animals = ["Gorilla", "Animal", "Yoda's species", "Kaiju"]
             let deadOnes = ["Vampire", "Demon", "Parademon", "Zombie", "Korugaran"]
             let aliens = ["Xenomorph XX121", "Alien", "Martian", "Yautja", "Luphomoid", "Czarnian",
                 "Bolovaxian", "Gungan", "Asgardian", "Rodian", "Zen-Whoberian", "Kakarantharaian", "Kryptonian", "Dathomirian Zabrak"]
             let animated = ["Saiyan", "Bizarro", "Neyaphem", "Atlantean", "Symbiote", "Cosmic Entity", "Ungaran"]
-            let gods = ["Demi-God", "Eternal", "New God", "Frost Giant", "Maiar", "God / Eternal"]
+            let mixed = ["Gorilla", "Animal", "Yoda's species", "Kaiju", "Cyborg", "Android", "Flora Colossus", "Demi-God", "Eternal", "New God", "Frost Giant", "Maiar", "God / Eternal"]
             this.superHeroes.forEach(superHero => {
                 // races.find se considera true, si encuentra una, y false si no.
                 if (!races.find(p => p == superHero.appearance.race)) {
@@ -52,28 +50,22 @@ export default {
                         superHero.color = "#001025"
                     }
                     if (mixedRace.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#0D221B"
+                        superHero.color = "#190F00"
                     }
                     if (humanoids.indexOf(superHero.appearance.race) != -1) {
                         superHero.color = "#000000"
-                    }
-                    if (robots.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#404040"
-                    }
-                    if (animals.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "FFFFFF"
                     }
                     if (deadOnes.indexOf(superHero.appearance.race) != -1) {
                         superHero.color = "#500808"
                     }
                     if (aliens.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#000F06"
+                        superHero.color = "#051900"
                     }
                     if (animated.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#1B001B"
+                        superHero.color = "#000119"
                     }
-                    if (gods.indexOf(superHero.appearance.race) != -1){
-                        superHero.color = "#251500"
+                    if (mixed.indexOf(superHero.appearance.race) != -1){
+                        superHero.color = "#190016"
                     }
                 }
             })
@@ -204,14 +196,14 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-bottom: 2%;
+        padding-bottom: 3%;
 
         .stat-img {
             width: 10%;
         }
 
         .attack-bar {
-            background-color: #EC1818;
+            background-color: #650f0f;
             height: 100%;
         }
 
@@ -224,7 +216,7 @@ export default {
         }
 
         .def-bar {
-            background-color: blue;
+            background-color: rgb(34, 34, 170);
             height: 100%;
         }
     }
