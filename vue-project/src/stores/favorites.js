@@ -3,15 +3,15 @@ import { defineStore } from "pinia";
 export const useFavoritesStore = defineStore({
     id: "favorites",
     state: () => ({
-      favorites: [],
+      favorites: ['Baby','Superman'],
     }),
     // getters: {
     //   doubleCount: (state) => state.counter * 2,
     // },
-    // actions: {
-    //   increment() {
-    //     this.counter++;
-    //   },
-    // },
+    actions: {
+      addFavorite(fav) {
+        this.favorites.push(fav);
+      },
+    },
   });
   

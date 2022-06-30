@@ -1,5 +1,24 @@
 <script>
+import { mapState,mapWritableState,mapActions } from "pinia";
+import { useFavoritesStore } from "../stores/favorites";
 
+export default {
+    data() {
+        return {
+            newHero: ""
+        }
+    },
+    computed: {
+        ...mapState(useFavoritesStore, {
+            favorites: 'favorites'
+        })
+    },
+    methods: {
+        ...mapActions(useFavoritesStore, {
+            add: 'addFavorite'
+        }),
+    }
+}
 </script>
 
 <template>
@@ -10,9 +29,14 @@
             <img src="../assets/img/star.png" alt="star">
         </header>
         <main>
-            <div v-for="superHero in $root.favorites">
-                <p> {{superHero.name}}</p>
+            <input id="new-favorite" type="text" placeholder="hero" v-model="newHero">
+            <button @click="add(this.newHero)">Add</button>
+            <div v-for="favorite in favorites" :key="key">
+                <p>{{ favorite }}</p>
             </div>
+            <!-- <div v-for="superHero in $root.favorites">
+                <p> {{superHero.name}}</p>
+            </div> -->
         </main>
     </div>
 </template>

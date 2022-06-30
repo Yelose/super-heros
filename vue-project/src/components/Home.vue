@@ -2,6 +2,7 @@
 export default {
     data() {
         return {
+            newSuperToAdd: "",
             superHeroes: [],
             superHeroSearch: '',
             superHeroesShort: [],
@@ -28,7 +29,9 @@ export default {
             this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
         },
         selectFavorite(superHero) {
-            this.$root.favorites.push(superHero)
+            this.newSuperToAdd = superHero;
+
+            //this.$root.favorites.push(superHero)
             this.searchSuperHeroes()
         },
         getRaces() {

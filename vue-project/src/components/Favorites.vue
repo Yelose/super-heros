@@ -1,5 +1,11 @@
 <script>
-
+import { mapState } from "pinia";
+import { useFavoritesStore } from "../stores/favorites";
+export default {
+    computed: {
+        ...mapState(useFavoritesStore, ['favorites'])
+    }
+}
 </script>
 
 <template>
@@ -7,6 +13,9 @@
         <button>
             <h3>Add my personalized card</h3>
         </button>
+        <div id="test" v-for="favorite in favorites" :key="key"  style="color:white;">
+            {{ favorite }}
+        </div>
         <div v-for="superHero in $root.favorites" class="favorites-item-container" v-bind:style="{ background: superHero.color  + '80'}">
             <div class="card-container" v-bind:style="{ background: superHero.color}">
                 <div v-on:click="" class="card-frame">
