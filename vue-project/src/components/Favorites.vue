@@ -75,7 +75,6 @@
         </section>
       </div>
 
-      <div>
         <section class="card-description-container">
           <h3 class="full-name">{{ superHero.biography.fullName }}</h3>
           <article>
@@ -97,7 +96,6 @@
           <h3 class="full-name">My Notes</h3>
         </section>
       </div>
-    </div>
   </main>
 </template>
 <style lang="scss">
@@ -120,7 +118,10 @@
   display: flex;
   flex-flow: column wrap;
   align-items: flex-start;
-
+  .cards-and-stats{
+    display: flex;
+  }
+  
   button {
     background-color: hsla(0, 0%, 0%, 0.6);
     border-radius: calc(0.3vw + 0.3vh);
@@ -131,13 +132,15 @@
 
   .favorites-item-container {
     display: flex;
-    flex-flow: row wrap-reverse;
+    flex-flow: row wrap;
     width: 100%;
     border: 3px solid #cfa25b;
     border-radius: calc(0.3vw + 0.3vh);
     margin-top: 5vh;
     padding: 2px;
-
+  .text-info-container{
+    display: flex;
+  }
     .card-container {
       background: rgb(53, 53, 53);
       width: 14vw;
