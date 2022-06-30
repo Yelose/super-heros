@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import Header from "./components/Header.vue";
-import MyCards from "./components/MyCards.vue";
+
 </script>
 
 <template>
@@ -10,9 +10,9 @@ import MyCards from "./components/MyCards.vue";
 <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Kenia&family=KoHo:wght@400;600&family=Koh+Santepheap:wght@700&display=swap" rel="stylesheet">  <header>
     <Header></Header>
   </header>
-  <aside>
+<!--   <aside>
     <MyCards></MyCards>
-  </aside>
+  </aside> -->
 
   <RouterView />
 </template>

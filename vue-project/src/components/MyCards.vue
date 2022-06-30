@@ -10,8 +10,8 @@
             <img src="../assets/img/star.png" alt="star">
         </header>
         <main>
-            <div v-for="superHero in $root.favorites">
-                {{superHero.name}}
+            <div v-for="superHero in $root.favourites">
+               {{superHero.name}}
             </div>
         </main>
     </div>

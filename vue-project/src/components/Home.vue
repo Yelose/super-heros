@@ -8,6 +8,7 @@ export default {
         }
     },
     methods: {
+
         loadSuperHeroes: async function () {
             let superHeroesRequest = await fetch('https://akabab.github.io/superhero-api/api/all.json')
             let superHeroes = await superHeroesRequest.json()
@@ -29,7 +30,11 @@ export default {
         selectFavourite(superHero) {
             this.$root.favourites.push(superHero)
             this.searchSuperHeroes()
+            
+       
         },
+
+
         getRaces() {
             let races = []
 
