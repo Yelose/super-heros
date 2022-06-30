@@ -1,12 +1,9 @@
 <script setup>
-    import Races from "@/components/Races.vue";
-    import MyCards from "../components/MyCards.vue";
-
+import Races from "@/components/Races.vue";
+import MyCards from "../components/MyCards.vue";
 </script>
 <template>
-    <Races></Races>
-    <MyCards></MyCards>
+  <Races></Races>
+  <MyCards></MyCards>
 </template>
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

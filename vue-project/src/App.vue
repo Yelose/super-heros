@@ -4,9 +4,13 @@ import Header from "./components/Header.vue";
 </script>
 
 <template>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Kenia&family=KoHo:wght@400;600&family=Koh+Santepheap:wght@700&display=swap" rel="stylesheet">  <header>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Kenia&family=KoHo:wght@400;600&family=Koh+Santepheap:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <header>
     <Header></Header>
   </header>
 
@@ -16,16 +20,16 @@ import Header from "./components/Header.vue";
 <style lang="scss">
 @use "./assets/base";
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html{
+html {
   cursor: url("/src/assets/img/cursorflecha.png"), pointer;
 }
 
-body{
+body {
   margin-top: calc(5vw + 10vh);
   min-height: 100vh;
   background-image: url("./assets/img/heroesfondo.png");
@@ -33,10 +37,11 @@ body{
   background-position: left;
   background-attachment: fixed;
   background-size: cover;
-  
 }
-a, a:hover, .card-frame{
-   cursor: url("/src/assets/img/cursordedo.png"), help;
+a,
+a:hover,
+.card-frame {
+  cursor: url("/src/assets/img/cursordedo.png"), help;
 }
 
 #app {
@@ -47,7 +52,6 @@ header {
   line-height: 1.5;
   max-height: 100vh;
 }
-
 
 /* @media (min-width: 1024px) {
   body {
