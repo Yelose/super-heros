@@ -27,7 +27,7 @@ const router = createRouter({
       path: "/favorites",
       name: "favorites",
       component: FavoritesView,
-    }
+    },
   ],
 });
 
