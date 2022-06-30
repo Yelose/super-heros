@@ -1,5 +1,19 @@
 <script>
+import { mapState,mapWritableState,mapActions } from "pinia";
+import { userCardsFavoritesStore} from "../stores/favorites";
 
+export default {
+/*     data() {
+        return {
+            Cardsfavorites: []
+        }
+    }, */
+    computed: {
+        ...mapState(userCardsFavoritesStore, {
+            favoritesHeroes: 'favoritesHeroes'
+        })
+    },
+}
 </script>
 
 <template>
@@ -10,24 +24,28 @@
             <img src="../assets/img/star.png" alt="star">
         </header>
         <main>
-            <div v-for="superHero in $root.favourites">
-               {{superHero.name}}
+<!--             <input id="new-favorite" type="text" placeholder="hero" v-model="newHero">
+            <button @click="add(this.favorites)">Add</button> -->
+            <div v-for="hero in favoritesHeroes" :key="key">
+                <p>{{ hero.name }}</p>
             </div>
+            <!-- <div v-for="superHero in $root.favorites">
+                <p> {{superHero.name}}</p>
+            </div> -->
         </main>
     </div>
 </template>
 
 <style lang="scss">
     .my-cards-container{
-        width: 20vw;
-        min-width: 180px;
         position: fixed;
+        top: calc(14vh + 5vw);
         right: 0;
-        top: calc(15vh + 2vw);
-        margin: 2vh 1vw 0 0;
-        height: 75vh;
+        height: calc(83vh - 5vw);
         padding: 1vh 2vw;
         overflow: auto;
+        width: calc(15vw + 150px);
+        background-color: rgba(255, 0, 0, 0.149);
         header{
             display: flex;
             align-items: center;

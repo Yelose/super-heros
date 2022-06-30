@@ -1,7 +1,6 @@
 <script setup>
   import Favorites from "@/components/Favorites.vue";
 import MyCards from "../components/MyCards.vue";
-
 </script>
 
 <template>
@@ -9,4 +8,7 @@ import MyCards from "../components/MyCards.vue";
     <Favorites />
     <MyCards></MyCards>
   </main>
+  <aside>
+    <MyCards></MyCards>
+  </aside>
 </template>

@@ -1,7 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import Header from "./components/Header.vue";
-
 </script>
 
 <template>
@@ -10,9 +9,6 @@ import Header from "./components/Header.vue";
 <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Kenia&family=KoHo:wght@400;600&family=Koh+Santepheap:wght@700&display=swap" rel="stylesheet">  <header>
     <Header></Header>
   </header>
-<!--   <aside>
-    <MyCards></MyCards>
-  </aside> -->
 
   <RouterView />
 </template>
@@ -25,6 +21,9 @@ import Header from "./components/Header.vue";
   padding: 0;
   box-sizing: border-box;
 }
+html{
+  cursor: url("/src/assets/img/cursorflecha.png"), pointer;
+}
 
 body{
   margin-top: calc(5vw + 10vh);
@@ -34,7 +33,12 @@ body{
   background-position: left;
   background-attachment: fixed;
   background-size: cover;
+  
 }
+a, a:hover, .card-frame{
+   cursor: url("/src/assets/img/cursordedo.png"), help;
+}
+
 #app {
   margin: 0 auto;
 }
