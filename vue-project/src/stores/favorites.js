@@ -1,16 +1,16 @@
 import { defineStore } from "pinia";
 
-export const useFavoritesStore = defineStore({
-    id: "favorites",
+export const userCardsFavoritesStore = defineStore({
+    id: "cardsfavorites",
     state: () => ({
-      favorites: ['Baby','Superman'],
+      favoritesHeroes: [],
     }),
     // getters: {
     //   doubleCount: (state) => state.counter * 2,
     // },
     actions: {
-      addFavorite(fav) {
-        this.favorites.push(fav);
+      addFavorite(favoriteHero) {
+        this.favoritesHeroes.push(favoriteHero);
       },
     },
   });

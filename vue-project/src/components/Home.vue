@@ -1,8 +1,10 @@
 <script>
+import { mapActions } from 'pinia'
+import { userCardsFavoritesStore } from '../stores/favorites'
+
 export default {
     data() {
         return {
-            newSuperToAdd: "",
             superHeroes: [],
             superHeroSearch: '',
             superHeroesShort: [],
@@ -28,10 +30,13 @@ export default {
             this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
             this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
         },
+        ...mapActions(userCardsFavoritesStore, ['addFavorite']),
         selectFavorite(superHero) {
-            this.newSuperToAdd = superHero;
-
             //this.$root.favorites.push(superHero)
+            //this.newSuperToAdd = superHero;
+            this.addFavorite(superHero)
+
+           
             this.searchSuperHeroes()
         },
         getRaces() {
