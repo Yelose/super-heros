@@ -3,8 +3,10 @@ import { mapState } from "pinia";
 import { userCardsFavoritesStore} from "../stores/favorites";
 export default {
     computed: {
-        ...mapState(userCardsFavoritesStore, ['favorites'])
-    }
+        ...mapState(userCardsFavoritesStore, {
+            favoritesHeroes: 'favoritesHeroes'
+        })
+    },
 }
 </script>
 
@@ -16,7 +18,7 @@ export default {
         <div id="test" v-for="cardsfavorites in Cardsfavorites" :key="key"  style="color:white;">
             {{ cardsfavorites }}
         </div>
-        <div v-for="superHero in $root.favorites" class="favorites-item-container" v-bind:style="{ background: superHero.color  + '80'}">
+        <div v-for="superHero in favoritesHeroes" class="favorites-item-container" v-bind:style="{ background: superHero.color  + '80'}">
             <div class="card-container" v-bind:style="{ background: superHero.color}">
                 <div v-on:click="" class="card-frame">
                     <h4>{{ superHero.name }}</h4>
