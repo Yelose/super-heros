@@ -8,7 +8,7 @@
         <p>{{ race }}</p>
     </div>
     <h1>Favorites</h1>
-    <div v-for="superHero in $root.favourites">
+    <div v-for="superHero in $root.favorites">
         {{superHero.name}}
     </div>
 </template>

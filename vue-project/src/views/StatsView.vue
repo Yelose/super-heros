@@ -1,12 +1,9 @@
 <script setup>
-    import Stats from "@/components/Stats.vue";
-import MyCards from "../components/MyCards.vue";
+import Stats from "@/components/Stats.vue";
+import MyCards from "@/components/MyCards.vue";
 </script>
 
 <template>
-
-    <Stats></Stats>
-    <MyCards />
-
-   
+   <Stats />
+   <MyCards/>
 </template>

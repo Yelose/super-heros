@@ -6,7 +6,6 @@ import MyCards from "../components/MyCards.vue";
 <template>
   <main>
     <Home></Home>
-    
+    <MyCards />
   </main>
-  <MyCards/>
 </template>

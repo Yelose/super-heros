@@ -1,4 +1,6 @@
+
 <script>
+
 export default {
     data() {
         return {
@@ -16,7 +18,7 @@ export default {
         filterSuperHeroes(superHeroes) {
             return superHeroes.filter(p =>
                 p.name.toLowerCase().indexOf(this.superHeroSearch.toLowerCase()) != -1 &&
-                !(this.$root.favourites.find(q => q.id == p.id))
+                !(this.$root.favorites.find(q => q.id == p.id))
             )
         },
         shortenSuperHeroes(superHeroes) {
@@ -27,14 +29,10 @@ export default {
             this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
         },
         selectFavourite(superHero) {
-            this.$root.favourites.push(superHero)
+            this.$root.favorites.push(superHero)
             this.searchSuperHeroes()
         },
-          selectMyCards(superHero) {
-            this.$root.MyCards.push(superHero)
-            this.searchSuperHeroes()
-        },
-
+     
         getRaces() {
             let races = []
 
@@ -63,7 +61,7 @@ export default {
         }
     },
     mounted: async function () {
-        this.$root.favourites = this.$root.favourites || []
+        this.$root.favorites = this.$root.favorites || []
         this.$root.MyCards = this.$root.MyCards || []
         this.superHeroes = await this.loadSuperHeroes()
         this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
