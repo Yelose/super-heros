@@ -1,14 +1,12 @@
 <script>
 import { mapActions } from 'pinia'
 import { userCardsFavoritesStore } from '../stores/favorites'
-
 export default {
     data() {
         return {
             superHeroes: [],
             superHeroSearch: '',
             superHeroesShort: [],
-            // audio: "/src/assets/audio/clin.mp3",
         }
     },
     methods: {
@@ -21,7 +19,7 @@ export default {
         filterSuperHeroes(superHeroes) {
             return superHeroes.filter(p =>
                 p.name.toLowerCase().indexOf(this.superHeroSearch.toLowerCase()) != -1 &&
-                !(this.$root.favorites.find(q => q.id == p.id))
+                !(this.$root.favourites.find(q => q.id == p.id))
             )
         },
         shortenSuperHeroes(superHeroes) {
@@ -31,13 +29,8 @@ export default {
             this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
             this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
         },
-        ...mapActions(userCardsFavoritesStore, ['addFavorite']),
-        selectFavorite(superHero) {
-            //this.$root.favorites.push(superHero)
-            //this.newSuperToAdd = superHero;
-            this.addFavorite(superHero)
-
-           
+        selectFavourite(superHero) {
+            this.$root.favourites.push(superHero)
             this.searchSuperHeroes()
             
        
@@ -46,64 +39,33 @@ export default {
 
         getRaces() {
             let races = []
-            let mixedRace = ["Human / Radiation", "Human / Clone", "Human / Cosmic",
-                "Human / Altered", "Human-Kree", "Human-Vuldarian", "Human-Vulcan", "Human-Spartoi", "Mutant / Clone"]
-            let humanoids = ["Human", "Icthyo Sapien", "Inhuman", "Metahuman", "Amazon", "Mutant", "Tamaranean",
-                "Talokite", "Clone", "Spartoi", "Strontian", "Black Racer", "Alpha"]
-            let deadOnes = ["Vampire", "Demon", "Parademon", "Zombie", "Korugaran"]
-            let aliens = ["Xenomorph XX121", "Alien", "Martian", "Yautja", "Luphomoid", "Czarnian",
-                "Bolovaxian", "Gungan", "Asgardian", "Rodian", "Zen-Whoberian", "Kakarantharaian", "Kryptonian", "Dathomirian Zabrak"]
-            let animated = ["Saiyan", "Bizarro", "Neyaphem", "Atlantean", "Symbiote", "Cosmic Entity", "Ungaran"]
-            let mixed = ["Gorilla", "Animal", "Yoda's species", "Kaiju", "Cyborg", "Android", "Flora Colossus", "Demi-God", "Eternal", "New God", "Frost Giant", "Maiar", "God / Eternal"]
+
+            // for (let superHero of this.superHeroes) {
+            //     let found = false
+            //     for (let race of races) {
+            //         if (race == superHero.race) {
+            //             found = true;
+            //             break
+            //         }
+            //     }
+            //     if (!found) {
+            //         races.push(superHero.race)
+            //     }
+            // }
+
             this.superHeroes.forEach(superHero => {
                 // races.find se considera true, si encuentra una, y false si no.
                 if (!races.find(p => p == superHero.appearance.race)) {
-                    if (superHero.appearance.race == null) {
-                        // races.push(superHero.appearance.race)
-                        superHero.color = "#001025"
-                    }
-                    if (mixedRace.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#190F00"
-                    }
-                    if (humanoids.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#000000"
-                    }
-                    if (deadOnes.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#500808"
-                    }
-                    if (aliens.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#051900"
-                    }
-                    if (animated.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#000119"
-                    }
-                    if (mixed.indexOf(superHero.appearance.race) != -1){
-                        superHero.color = "#190016"
+                    if (superHero.appearance.race != null) {
+                        races.push(superHero.appearance.race)
                     }
                 }
             })
             return races
-        },
-        // giveColor(hero) {
-        //     color = ""
-        //     let mestizosColor = "#260E08"
-        //     let mestizos = ["Human / Radiation", "Human / Clone", "Human / Cosmic", "Human / Altered", "Human / Altered"]
-        //     this.superHeroes.forEach(superHero => {
-        //         if (!color.find(p => p == superHero.appearance.race)){
-        //             if (superHero.appearance.race == null){
-        //                 this.$root.superHero.color = "gray"
-        //             }
-        //         }
-        //     })
-        //     return color
-        // },
-        // audioPlayClin() {
-        //     let audio = document.createElement()
-        // }
-
+        }
     },
     mounted: async function () {
-        this.$root.favorites = this.$root.favorites || []
+        this.$root.favourites = this.$root.favourites || []
         this.superHeroes = await this.loadSuperHeroes()
         this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
         this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
@@ -114,42 +76,39 @@ export default {
 </script>
 
 <template>
-    <main>
-        <div class="home-container">
-            <input type="text" placeholder="search" v-on:keyup="searchSuperHeroes()" v-model="superHeroSearch" />
-            <div class="card-container" v-bind:style="{ background: superHero.color }" v-for="superHero in superHeroesShort"
-                v-on:click="selectFavorite(superHero)">
-                <div v-on:click="" class="card-frame">
-                    <h4>{{ superHero.name }}</h4>
-                    <img class="hero-img-md" v-bind:src="superHero.images.sm" alt="">
-                    <div class="card-stats-container">
-                        <section class="stat-bar">
-                            <img class="stat-img" src="/src/assets/img/espada2.png" alt="">
-                            <div class="colorless-bar">
-                                <div class="attack-bar" v-bind:style="{ width: superHero.powerstats.strength + '%' }"></div>
-                            </div>
-                        </section>
-                        <section class="stat-bar">
-                            <img class="stat-img" src="/src/assets/img/escudo2.png" alt="">
-                            <div class="colorless-bar">
-                                <div class="def-bar" v-bind:style="{ width: superHero.powerstats.durability + '%' }"></div>
-                            </div>
-                        </section>
-                    </div>
+    <div class="home-container">
+        <input type="text" placeholder="search" v-on:keyup="searchSuperHeroes()" v-model="superHeroSearch" />
+        <div class="card-container" v-for="superHero in superHeroesShort" v-on:click="selectFavourite(superHero)">
+            <div class="card-frame">
+                <h4>{{ superHero.name }}</h4>
+                <img class="hero-img-md" v-bind:src="superHero.images.sm" alt="">
+                <div class="card-stats-container">
+                    <section class="stat-bar">
+                        <img class="stat-img" src="/src/assets/img/espada2.png" alt="">
+                        <div class="colorless-bar">
+                            <div class="attack-bar" v-bind:style="{width: superHero.powerstats.strength + '%'}"></div>
+                        </div>
+                    </section>
+                    <section class="stat-bar">
+                        <img class="stat-img" src="/src/assets/img/escudo2.png" alt="">
+                        <div class="colorless-bar">
+                            <div class="def-bar" v-bind:style="{width: superHero.powerstats.durability + '%'}"></div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <style lang="scss">
 .home-container {
+    padding-left: 4vw;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    width: calc(83vw - 150px);
-    padding: 3vw;
-    gap: 1%;
+    margin-top: calc(5vw + 15vh);
+    width: 70vw;
 
     input {
         position: fixed;
@@ -163,13 +122,12 @@ export default {
     }
 
     .card-container {
-        background: rgb(53, 53, 53);
+        background-color: rgb(18, 18, 84);
         width: 14vw;
         height: 22vw;
-        margin-bottom: 2%;
+        margin-bottom: 6vh;
         border-radius: 4%;
-        max-width: 130px;
-        max-height: 205px;
+
         .card-frame {
             width: 100%;
             height: 100%;
@@ -184,15 +142,16 @@ export default {
             border-radius: 4%;
 
             h4 {
-                margin-top: 17%;
-                font-size: clamp(8px, 1.5vw, 15px);
+                margin-top: 2.7vw;
+                font-size: 1.5vw;
                 color: #D9D9D9;
                 font-weight: 100;
             }
 
             .hero-img-md {
-                width: 60%;
-                margin-bottom: 4%;
+                width: 9vw;
+                height: 11vw;
+                margin-bottom: 0.5vw;
             }
         }
     }
@@ -209,17 +168,16 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-bottom: 3%;
-
+        padding-bottom: 0.5vw;
+        
         .stat-img {
-            width: 10%;
+            width: 1vw;
+            height: 1vw;
         }
-
-        .attack-bar {
-            background-color: #650f0f;
+        .attack-bar{
+            background-color: #EC1818;
             height: 100%;
         }
-
         .colorless-bar {
             width: 80%;
             height: 100%;
@@ -227,9 +185,8 @@ export default {
             border-radius: 2vw;
             overflow: hidden;
         }
-
-        .def-bar {
-            background-color: rgb(34, 34, 170);
+        .def-bar{
+            background-color: blue;
             height: 100%;
         }
     }
