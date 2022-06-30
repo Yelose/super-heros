@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import Header from "./components/Header.vue";
+import Copiright from "./components/Copiright.vue";
 </script>
 
 <template>
@@ -8,6 +9,7 @@ import Header from "./components/Header.vue";
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Kenia&family=KoHo:wght@400;600&family=Koh+Santepheap:wght@700&display=swap" rel="stylesheet">  <header>
     <Header></Header>
+    <Copiright/>
   </header>
 
   <RouterView />

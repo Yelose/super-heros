@@ -1,5 +1,11 @@
 <script>
-
+import { mapState } from "pinia";
+import { userCardsFavoritesStore} from "../stores/favorites";
+export default {
+    computed: {
+        ...mapState(userCardsFavoritesStore, ['favorites'])
+    }
+}
 </script>
 
 <template>
@@ -7,6 +13,9 @@
         <button>
             <h3>Add my personalized card</h3>
         </button>
+        <div id="test" v-for="cardsfavorites in Cardsfavorites" :key="key"  style="color:white;">
+            {{ cardsfavorites }}
+        </div>
         <div v-for="superHero in $root.favorites" class="favorites-item-container" v-bind:style="{ background: superHero.color  + '80'}">
             <div class="card-container" v-bind:style="{ background: superHero.color}">
                 <div v-on:click="" class="card-frame">
@@ -40,7 +49,6 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
-
     button {
         background-color: hsla(0, 0%, 0%, 0.6);
         border-radius: calc(0.3vw + 0.3vh);
@@ -48,14 +56,12 @@
         width: 100%;
         padding: 1vh 1vw;
     }
-
     .favorites-item-container {
         width: 100%;
         border: 3px solid #CFA25B;
         border-radius: calc(0.3vw + 0.3vh);
         margin-top: 5vh;
         padding: 2px;
-
         .card-container {
             background: rgb(53, 53, 53);
             width: 14vw;
@@ -63,7 +69,6 @@
             border-radius: 4%;
             max-width: 130px;
             max-height: 205px;
-
             .card-frame {
                 width: 100%;
                 height: 100%;
@@ -76,14 +81,12 @@
                 background-size: cover;
                 background-position: center;
                 border-radius: 4%;
-
                 h4 {
                     margin-top: 17%;
                     font-size: clamp(8px, 1.5vw, 15px);
                     color: #D9D9D9;
                     font-weight: 100;
                 }
-
                 .hero-img-md {
                     width: 60%;
                     margin-bottom: 4%;
@@ -91,7 +94,5 @@
             }
         }
     }
-
 }
 </style>
-
