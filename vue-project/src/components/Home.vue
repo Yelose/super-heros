@@ -31,8 +31,8 @@ export default {
         },
         ...mapActions(userCardsFavoritesStore, ['addFavorite']),
         selectFavorite(superHero) {
-            //this.$root.favorites.push(superHero)
-            //this.newSuperToAdd = superHero;
+            this.$root.favorites.push(superHero)
+            /* this.newSuperToAdd = superHero; */
             this.addFavorite(superHero)
            
             this.searchSuperHeroes()
