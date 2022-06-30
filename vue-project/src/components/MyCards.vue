@@ -1,7 +1,6 @@
 <script>
 import { mapState,mapWritableState,mapActions } from "pinia";
 import { userCardsFavoritesStore} from "../stores/favorites";
-
 export default {
 /*     data() {
         return {

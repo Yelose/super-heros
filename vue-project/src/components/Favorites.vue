@@ -49,7 +49,6 @@ export default {
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
-
     button {
         background-color: hsla(0, 0%, 0%, 0.6);
         border-radius: calc(0.3vw + 0.3vh);
@@ -57,14 +56,12 @@ export default {
         width: 100%;
         padding: 1vh 1vw;
     }
-
     .favorites-item-container {
         width: 100%;
         border: 3px solid #CFA25B;
         border-radius: calc(0.3vw + 0.3vh);
         margin-top: 5vh;
         padding: 2px;
-
         .card-container {
             background: rgb(53, 53, 53);
             width: 14vw;
@@ -72,7 +69,6 @@ export default {
             border-radius: 4%;
             max-width: 130px;
             max-height: 205px;
-
             .card-frame {
                 width: 100%;
                 height: 100%;
@@ -85,14 +81,12 @@ export default {
                 background-size: cover;
                 background-position: center;
                 border-radius: 4%;
-
                 h4 {
                     margin-top: 17%;
                     font-size: clamp(8px, 1.5vw, 15px);
                     color: #D9D9D9;
                     font-weight: 100;
                 }
-
                 .hero-img-md {
                     width: 60%;
                     margin-bottom: 4%;
@@ -100,7 +94,5 @@ export default {
             }
         }
     }
-
 }
 </style>
-
