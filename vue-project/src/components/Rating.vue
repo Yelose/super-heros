@@ -19,12 +19,9 @@
         </form>
     </div>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 div {
-    form {
-        width: 250px;
-        margin: 0 auto;
-        height: 50px;
+    form {        
         .score {
             direction: rtl;
             unicode-bidi: bidi-override;
@@ -34,7 +31,7 @@ div {
             }
 
             label {
-                color: rgb(255, 255, 255);
+                color: rgb(139, 117, 66);
                 font-size: 20px;
                 transition: transform 1s ease-out;
             }
