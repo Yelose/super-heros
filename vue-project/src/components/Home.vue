@@ -1,4 +1,6 @@
+
 <script>
+
 export default {
     data() {
         return {
@@ -31,6 +33,7 @@ export default {
             this.$root.favorites.push(superHero)
             this.searchSuperHeroes()
         },
+     
         getRaces() {
             let races = []
             let mixedRace = ["Human / Radiation", "Human / Clone", "Human / Cosmic",
