@@ -3,7 +3,7 @@
 
 <template>
    <footer>
-      <p>The Scrommers c since 2022</p>
+      <p>The Scrummers c since 2022</p>
    </footer>
 </template>
 <style lang="scss">

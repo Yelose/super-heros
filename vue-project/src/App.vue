@@ -1,12 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import Header from "./components/Header.vue";
-<<<<<<< HEAD
 import Copiright from "./components/Copiright.vue";
-
-// import MyCards from "./components/MyCards.vue";
-=======
->>>>>>> 4d0f42b44c346bb256f05203f81a09462648b976
 </script>
 
 <template>
@@ -16,12 +11,6 @@ import Copiright from "./components/Copiright.vue";
     <Header></Header>
     <Copiright/>
   </header>
-<<<<<<< HEAD
-  <!-- <aside>
-    <MyCards></MyCards>
-  </aside> -->
-=======
->>>>>>> 4d0f42b44c346bb256f05203f81a09462648b976
 
   <RouterView />
 </template>
