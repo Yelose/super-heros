@@ -1,4 +1,7 @@
+
 <script>
+import { mapActions } from 'pinia'
+import { userCardsFavoritesStore } from '../stores/favorites'
 
 export default {
     data() {
@@ -28,10 +31,15 @@ export default {
             this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
             this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
         },
+        ...mapActions(userCardsFavoritesStore, ['addFavorite']),
         selectFavorite(superHero) {
             this.$root.favorites.push(superHero)
+            /* this.newSuperToAdd = superHero; */
+            this.addFavorite(superHero)
+           
             this.searchSuperHeroes()
         },
+     
         getRaces() {
             let races = []
             let mixedRace = ["Human / Radiation", "Human / Clone", "Human / Cosmic",
@@ -89,7 +97,6 @@ export default {
         // audioPlayClin() {
         //     let audio = document.createElement()
         // }
-
     },
     mounted: async function () {
         this.$root.favorites = this.$root.favorites || []
@@ -138,7 +145,6 @@ export default {
     width: calc(83vw - 150px);
     padding: 3vw;
     gap: 1%;
-
     input {
         position: fixed;
         right: 0;
@@ -149,7 +155,6 @@ export default {
         width: 16vw;
         z-index: 102;
     }
-
     .card-container {
         background: rgb(53, 53, 53);
         width: 14vw;
@@ -170,14 +175,12 @@ export default {
             background-size: cover;
             background-position: center;
             border-radius: 4%;
-
             h4 {
                 margin-top: 17%;
                 font-size: clamp(8px, 1.5vw, 15px);
                 color: #D9D9D9;
                 font-weight: 100;
             }
-
             .hero-img-md {
                 width: 60%;
                 margin-bottom: 4%;
@@ -185,29 +188,24 @@ export default {
         }
     }
 }
-
 .card-stats-container {
     width: 65%;
     bottom: 0;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-
     .stat-bar {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-bottom: 3%;
-
         .stat-img {
             width: 10%;
         }
-
         .attack-bar {
             background-color: #650f0f;
             height: 100%;
         }
-
         .colorless-bar {
             width: 80%;
             height: 100%;
@@ -215,7 +213,6 @@ export default {
             border-radius: 2vw;
             overflow: hidden;
         }
-
         .def-bar {
             background-color: rgb(34, 34, 170);
             height: 100%;
