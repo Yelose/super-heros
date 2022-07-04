@@ -1,4 +1,3 @@
-
 <script>
 import { mapActions } from 'pinia'
 import { userCardsFavoritesStore } from '../stores/favorites'
@@ -21,7 +20,7 @@ export default {
         filterSuperHeroes(superHeroes) {
             return superHeroes.filter(p =>
                 p.name.toLowerCase().indexOf(this.superHeroSearch.toLowerCase()) != -1 &&
-                !(this.$root.favorites.find(q => q.id == p.id))
+                !(this.favoritesHeroes.find(q => q.id == p.id))
             )
         },
         shortenSuperHeroes(superHeroes) {
@@ -33,8 +32,8 @@ export default {
         },
         ...mapActions(userCardsFavoritesStore, ['addFavorite']),
         selectFavorite(superHero) {
-            this.$root.favorites.push(superHero)
-            /* this.newSuperToAdd = superHero; */
+            this.favoritesHeroes.push(superHero) 
+            //this.newSuperToAdd = superHero;
             this.addFavorite(superHero)
            
             this.searchSuperHeroes()
@@ -98,7 +97,7 @@ export default {
         // }
     },
     mounted: async function () {
-        this.$root.favorites = this.$root.favorites || []
+        this.favoritesHeroes = this.favoritesHeroes || []
         this.superHeroes = await this.loadSuperHeroes()
         this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
         this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
