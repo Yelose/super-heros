@@ -30,6 +30,7 @@ export default {
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
+    margin-bottom: 10vh;
     button {
         background-color: hsla(0, 0%, 0%, 0.6);
         border-radius: calc(0.3vw + 0.3vh);

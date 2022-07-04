@@ -110,7 +110,7 @@ export default {
             <input type="text" placeholder="search" v-on:keyup="searchSuperHeroes()" v-model="superHeroSearch" />
             <div class="card-container" v-bind:style="{ background: superHero.color }" v-for="superHero in superHeroesShort"
                 v-on:click="selectFavorite(superHero)">
-                <div v-on:click="" class="card-frame">
+                <div class="card-frame">
                     <h4>{{ superHero.name }}</h4>
                     <img class="hero-img-md" v-bind:src="superHero.images.sm" alt="">
                     <div class="card-stats-container">
