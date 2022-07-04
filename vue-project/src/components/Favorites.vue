@@ -3,8 +3,10 @@ import { mapState } from "pinia";
 import { userCardsFavoritesStore } from "../stores/favorites";
 export default {
   computed: {
-    ...mapState(userCardsFavoritesStore, ['favorites'])
-  }
+    ...mapState(userCardsFavoritesStore, {
+      favoritesHeroes: 'favoritesHeroes'
+    })
+  },
 }
 </script>
 
@@ -16,9 +18,9 @@ export default {
     <div id="test" v-for="cardsfavorites in Cardsfavorites" :key="key" style="color:white;">
       {{ cardsfavorites }}
     </div>
-    <div v-for="superHero in $root.favorites" class="favorites-item-container"
+    <div v-for="superHero in favoritesHeroes" class="favorites-item-container"
       v-bind:style="{ background: superHero.color + '80' }">
-      <section class="card-container" v-bind:style="{ background: superHero.color }">
+      <div class="card-container" v-bind:style="{ background: superHero.color }">
         <div v-on:click="" class="card-frame">
           <h4>{{ superHero.name }}</h4>
           <img class="hero-img-md" v-bind:src="superHero.images.sm" alt="">
@@ -39,18 +41,25 @@ export default {
             </section>
           </div>
         </div>
-      </section>
-      <section class="stat-bar">
-        <img class="stat-img" src="/src/assets/img/escudo2.png" alt="" />
-        <div class="colorless-bar">
-          <div class="def-bar" v-bind:style="{
-            width: superHero.powerstats.durability + '%',
-          }"></div>
-        </div>
-      </section>
     </div>
+    <section class="stat-bar">
+      <img class="stat-img" src="/src/assets/img/escudo2.png" alt="">
+      <div class="colorless-bar">
+        <div class="def-bar" v-bind:style="{ width: superHero.powerstats.durability + '%' }">
+        </div>
+      </div>
+    </section>
+    </div>
+    <section class="stat-bar">
+      <img class="stat-img" src="/src/assets/img/escudo2.png" alt="" />
+      <div class="colorless-bar">
+        <div class="def-bar" v-bind:style="{
+          width: superHero.powerstats.durability + '%',
+        }"></div>
+      </div>
+    </section>
 
-    
+
     <section class="stats-container">
       <div class="int stat">
         <span>INT</span>
@@ -72,7 +81,7 @@ export default {
         <span>COM</span><span>{{ superHero.powerstats.combat }}</span>
       </div>
     </section>
-    
+
 
     <section class="card-description-container">
       <h3 class="full-name">{{ superHero.biography.fullName }}</h3>
@@ -94,7 +103,7 @@ export default {
     <section class="my-notes">
       <h3 class="full-name">My Notes</h3>
     </section>
-   
+
   </main>
 </template>
 <style lang="scss">
