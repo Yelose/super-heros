@@ -78,7 +78,9 @@ export default {
             })
             return races
         },
-                
+   clickCallback: function(page) {
+      console.log(page)
+    }             
         // giveColor(hero) {
         //     color = ""
         //     let mestizosColor = "#260E08"
@@ -103,6 +105,7 @@ export default {
         this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
         this.$root.races = this.getRaces()
     }
+    
 }
 </script>
 
@@ -131,7 +134,13 @@ export default {
                     </div>
                 </div>
             </div>
-            <vue-awesome-paginate :total-items="40" />
+            <vue-awesome-paginate
+            :total-items="40"
+            :items-per-page="10"
+            :max-pages-shown="3"
+            :current-page="1"
+            :container-class="'home-container'"
+            :clickHandler="clickCallback" />
         </div>
     </main>
 </template>

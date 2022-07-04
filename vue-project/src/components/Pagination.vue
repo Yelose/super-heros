@@ -1,16 +1,13 @@
-<script setup lang="ts">
+<script setup>
 
-  const onClickHandler = (page: number) => {
-    console.log(page);
-  };
 
 </script>
 
 <template>
-  <paginate
-    :total-items="100"
+  <vue-awesome-paginate
+    :total-items="40"
     :items-per-page="10"
-    :max-pages-shown="8"
+    :max-pages-shown="10"
     :current-page="1"
     :container-class="'home-container'"
     :on-click="onClickHandler"
@@ -42,6 +39,6 @@
     
   }
   .active-page:hover {
-    background-color: #2988c8;
+    background-color: #42515c;
   }
 </style>
