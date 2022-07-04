@@ -12,6 +12,13 @@ export default {
             favoritesHeroes: 'favoritesHeroes'
         })
     },
+    methods: {
+        ...mapActions(userCardsFavoritesStore, ["deleteFavorite"]),
+
+        // deleteFavorite: function(hero){
+        //     this.favoritesHeroes.splice(this.favoritesHeroes.indexOf(hero), 1)
+        // }
+    },
 }
 </script>
 
@@ -27,6 +34,7 @@ export default {
             <button @click="add(this.favorites)">Add</button> -->
             <div v-for="hero in favoritesHeroes" :key="key">
                 <p>{{ hero.name }}</p>
+                <p v-on:click="deleteFavorite(hero)">X</p>
             </div>
             <!-- <div v-for="superHero in $root.favorites">
                 <p> {{superHero.name}}</p>
