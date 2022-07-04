@@ -39,7 +39,6 @@ export default {
            
             this.searchSuperHeroes()
         },
-     
         getRaces() {
             let races = []
             let mixedRace = ["Human / Radiation", "Human / Clone", "Human / Cosmic",
@@ -133,6 +132,7 @@ export default {
                     </div>
                 </div>
             </div>
+            <vue-awesome-paginate :total-items="40" />
         </div>
     </main>
 </template>
