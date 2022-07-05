@@ -1,13 +1,15 @@
 <script>
 import { mapState } from 'pinia';
 import { userCardsFavoritesStore } from '../stores/favorites';
+import Rating from './Rating.vue';
 
 export default {
     computed: {
         ...mapState(userCardsFavoritesStore, {
-            favoritesHeroes: 'favoritesHeroes'
+            favoritesHeroes: "favoritesHeroes"
         })
     },
+    components: { Rating }
 }
 </script>
 <template>
@@ -33,6 +35,7 @@ export default {
                         </div>
                     </section>
                 </div>
+                 <Rating/>
             </div>
         </div>
     </div>
