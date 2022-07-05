@@ -1,86 +1,78 @@
 <script>
 import { mapActions } from 'pinia'
 import { userCardsFavoritesStore } from '../stores/favorites'
+import Pagination from './Pagination.vue'
 
 export default {
     data() {
         return {
             superHeroes: [],
-            superHeroSearch: '',
+            superHeroSearch: "",
             superHeroesShort: [],
             // audio: "/src/assets/audio/clin.mp3",
-        }
+        };
     },
     methods: {
         loadSuperHeroes: async function () {
-            let superHeroesRequest = await fetch('https://akabab.github.io/superhero-api/api/all.json')
-            let superHeroes = await superHeroesRequest.json()
-            return superHeroes
+            let superHeroesRequest = await fetch("https://akabab.github.io/superhero-api/api/all.json");
+            let superHeroes = await superHeroesRequest.json();
+            return superHeroes;
         },
         filterSuperHeroes(superHeroes) {
-            return superHeroes.filter(p =>
-                p.name.toLowerCase().indexOf(this.superHeroSearch.toLowerCase()) != -1 &&
-                !(this.favoritesHeroes.find(q => q.id == p.id))
-            )
+            return superHeroes.filter(p => p.name.toLowerCase().indexOf(this.superHeroSearch.toLowerCase()) != -1 &&
+                !(this.favoritesHeroes.find(q => q.id == p.id)));
         },
         shortenSuperHeroes(superHeroes) {
-            return superHeroes.splice(0, 40)
+            return superHeroes.splice(0, 40);
         },
         searchSuperHeroes() {
-            this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
-            this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
+            this.superHeroesShort = this.filterSuperHeroes(this.superHeroes);
+            this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort);
         },
-        ...mapActions(userCardsFavoritesStore, ['addFavorite']),
+        ...mapActions(userCardsFavoritesStore, ["addFavorite"]),
         selectFavorite(superHero) {
-            this.favoritesHeroes.push(superHero) 
+            this.favoritesHeroes.push(superHero);
             //this.newSuperToAdd = superHero;
-            this.addFavorite(superHero)
-           
-            this.searchSuperHeroes()
+            this.addFavorite(superHero);
+            this.searchSuperHeroes();
         },
         getRaces() {
-            let races = []
-            let mixedRace = ["Human / Radiation", "Human / Clone", "Human / Cosmic",
-                "Human / Altered", "Human-Kree", "Human-Vuldarian", "Human-Vulcan", "Human-Spartoi", "Mutant / Clone"]
-            let humanoids = ["Human", "Icthyo Sapien", "Inhuman", "Metahuman", "Amazon", "Mutant", "Tamaranean",
-                "Talokite", "Clone", "Spartoi", "Strontian", "Black Racer", "Alpha"]
-            let deadOnes = ["Vampire", "Demon", "Parademon", "Zombie", "Korugaran"]
-            let aliens = ["Xenomorph XX121", "Alien", "Martian", "Yautja", "Luphomoid", "Czarnian",
-                "Bolovaxian", "Gungan", "Asgardian", "Rodian", "Zen-Whoberian", "Kakarantharaian", "Kryptonian", "Dathomirian Zabrak"]
-            let animated = ["Saiyan", "Bizarro", "Neyaphem", "Atlantean", "Symbiote", "Cosmic Entity", "Ungaran"]
-            let mixed = ["Gorilla", "Animal", "Yoda's species", "Kaiju", "Cyborg", "Android", "Flora Colossus", "Demi-God", "Eternal", "New God", "Frost Giant", "Maiar", "God / Eternal"]
+            let races = [];
+            let mixedRace = ["Human / Radiation", "Human / Clone", "Human / Cosmic", "Human / Altered", "Human-Kree", "Human-Vuldarian", "Human-Vulcan", "Human-Spartoi", "Mutant / Clone"];
+            let humanoids = ["Human", "Icthyo Sapien", "Inhuman", "Metahuman", "Amazon", "Mutant", "Tamaranean", "Talokite", "Clone", "Spartoi", "Strontian", "Black Racer", "Alpha"];
+            let deadOnes = ["Vampire", "Demon", "Parademon", "Zombie", "Korugaran"];
+            let aliens = ["Xenomorph XX121", "Alien", "Martian", "Yautja", "Luphomoid", "Czarnian", "Bolovaxian", "Gungan", "Asgardian", "Rodian", "Zen-Whoberian", "Kakarantharaian", "Kryptonian", "Dathomirian Zabrak"];
+            let animated = ["Saiyan", "Bizarro", "Neyaphem", "Atlantean", "Symbiote", "Cosmic Entity", "Ungaran"];
+            let mixed = ["Gorilla", "Animal", "Yoda's species", "Kaiju", "Cyborg", "Android", "Flora Colossus", "Demi-God", "Eternal", "New God", "Frost Giant", "Maiar", "God / Eternal"];
             this.superHeroes.forEach(superHero => {
                 // races.find se considera true, si encuentra una, y false si no.
                 if (!races.find(p => p == superHero.appearance.race)) {
                     if (superHero.appearance.race == null) {
                         // races.push(superHero.appearance.race)
-                        superHero.color = "#001025"
+                        superHero.color = "#001025";
                     }
                     if (mixedRace.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#190F00"
+                        superHero.color = "#190F00";
                     }
                     if (humanoids.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#000000"
+                        superHero.color = "#000000";
                     }
                     if (deadOnes.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#500808"
+                        superHero.color = "#500808";
                     }
                     if (aliens.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#051900"
+                        superHero.color = "#051900";
                     }
                     if (animated.indexOf(superHero.appearance.race) != -1) {
-                        superHero.color = "#000119"
+                        superHero.color = "#000119";
                     }
-                    if (mixed.indexOf(superHero.appearance.race) != -1){
-                        superHero.color = "#190016"
+                    if (mixed.indexOf(superHero.appearance.race) != -1) {
+                        superHero.color = "#190016";
                     }
                 }
-            })
-            return races
+            });
+            return races;
         },
-   clickCallback: function(page) {
-      console.log(page)
-    }             
         // giveColor(hero) {
         //     color = ""
         //     let mestizosColor = "#260E08"
@@ -99,13 +91,13 @@ export default {
         // }
     },
     mounted: async function () {
-        this.favoritesHeroes = this.favoritesHeroes || []
-        this.superHeroes = await this.loadSuperHeroes()
-        this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
-        this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
-        this.$root.races = this.getRaces()
-    }
-    
+        this.favoritesHeroes = this.favoritesHeroes || [];
+        this.superHeroes = await this.loadSuperHeroes();
+        this.superHeroesShort = this.filterSuperHeroes(this.superHeroes);
+        this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort);
+        this.$root.races = this.getRaces();
+    },
+    components: { Pagination }
 }
 </script>
 
@@ -134,14 +126,8 @@ export default {
                     </div>
                 </div>
             </div>
-            <vue-awesome-paginate
-            :total-items="40"
-            :items-per-page="10"
-            :max-pages-shown="3"
-            :current-page="1"
-            :container-class="'home-container'"
-            :clickHandler="clickCallback" />
         </div>
+        
     </main>
 </template>
 

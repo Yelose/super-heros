@@ -12,6 +12,15 @@ export default {
             favoritesHeroes: 'favoritesHeroes'
         })
     },
+
+    ...mapActions(userCardsFavoritesStore, ['deleteFavorite']),
+    selectFavorite(superHero) {
+            this.favoritesHeroes.push(superHero) 
+            //this.newSuperToAdd = superHero;
+            this.deleteFavorite(superHero)
+           
+            this.searchSuperHeroes()
+        },
 }
 </script>
 
