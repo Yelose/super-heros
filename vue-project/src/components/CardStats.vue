@@ -14,12 +14,12 @@ export default {
 
 <template>
  <main>
-    <div class="stats-container" v-for="(superHero, index) in favoritesHeroes">
+    <div class="stats-cards-container" v-for="(superHero, index) in favoritesHeroes">
       <section>
-        <p v-bind:style="{ background: superHero.color }" class="initials">
+ <!--        <p v-bind:style="{ background: superHero.color }" class="initials">
           {{ "INT" }}:{{ superHero.powerstats.intelligence }}
-        </p>
-        <p v-bind:style="{ background: superHero.color }" class="initials">
+        </p> -->
+<!--         <p v-bind:style="{ background: superHero.color }" class="initials">
           {{ "STR" }}:{{ superHero.powerstats.strength }}
         </p>
                 <p v-bind:style="{ background: superHero.color }" class="initials">
@@ -33,7 +33,7 @@ export default {
         </p>
                 <p v-bind:style="{ background: superHero.color }" class="initials">
           {{ "COM" }}:{{ superHero.powerstats.combat }}
-        </p>
+        </p> -->
       </section>
 
     </div>
@@ -48,7 +48,7 @@ main {
   display: flex;
   flex-flow: column;
   width: calc(83vw - 150px);
-  .stats-container {
+  .stats-clas-container {
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
