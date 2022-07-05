@@ -1,10 +1,6 @@
 <script setup>
-  import Home from "../components/Home.vue";
-  import MyCards from "../components/MyCards.vue";
-  import Pagination from "../components/Pagination.vue";
-
-
-
+import Home from "../components/Home.vue";
+import MyCards from "../components/MyCards.vue";
 </script>
 
 <template>
@@ -18,7 +14,7 @@
   </main>
 </template>
 <style lang="scss">
-.home-view-container{
+.home-view-container {
   display: flex;
 }
 

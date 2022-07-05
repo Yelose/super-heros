@@ -1,7 +1,6 @@
 <script>
 import { mapActions } from 'pinia'
 import { userCardsFavoritesStore } from '../stores/favorites'
-import Pagination from './Pagination.vue'
 
 export default {
     data() {
@@ -31,7 +30,7 @@ export default {
         },
         ...mapActions(userCardsFavoritesStore, ["addFavorite"]),
         selectFavorite(superHero) {
-            this.favoritesHeroes.push(superHero);
+            this.favoritesHeroes.push(superHero)
             //this.newSuperToAdd = superHero;
             this.addFavorite(superHero);
             this.searchSuperHeroes();
@@ -97,10 +96,9 @@ export default {
         this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort);
         this.$root.races = this.getRaces();
     },
-    components: { Pagination }
 }
 </script>
-
+ 
 <template>
     <main>
         <div class="home-container">
@@ -130,7 +128,7 @@ export default {
         
     </main>
 </template>
-
+ 
 <style lang="scss">
 .home-container {
     display: flex;
