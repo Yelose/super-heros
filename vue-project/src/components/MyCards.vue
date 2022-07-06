@@ -1,17 +1,19 @@
 <script>
 import { mapState,mapWritableState,mapActions } from "pinia";
 import { userCardsFavoritesStore} from "../stores/favorites";
+import Notes from "./Notes.vue";
 export default {
-/*     data() {
-        return {
-            Cardsfavorites: []
-        }
-    }, */
+    /*     data() {
+            return {
+                Cardsfavorites: []
+            }
+        }, */
     computed: {
         ...mapState(userCardsFavoritesStore, {
-            favoritesHeroes: 'favoritesHeroes'
+            favoritesHeroes: "favoritesHeroes"
         })
     },
+    components: { Notes }
 }
 </script>
 
