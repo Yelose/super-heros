@@ -20,6 +20,8 @@
    text-align: center;
    
    .container-form{
+      width: 100%;
+      height: 100%;
            padding: 2%;
             background-image: url('../assets/img/pergamino.png');
             -webkit-transform:rotate(90deg);
@@ -30,13 +32,10 @@
      .text{
            -webkit-transform:rotate(-90deg);
             background-color: transparent;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            width: 9vw;
-            height: 8vw;
+            width: 80%;
+            height: 800%;
             padding:2vh; 
-            border: transparent;  
+            border: none;  
      }
      p{
       font-family:'Kenia', cursive;
