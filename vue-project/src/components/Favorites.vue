@@ -49,6 +49,9 @@ export default {
         border-radius: calc(0.3vw + 0.3vh);
         margin-top: 5vh;
         padding: 2px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
         .card-container {
             background: rgb(53, 53, 53);
             width: 14vw;
@@ -56,6 +59,8 @@ export default {
             border-radius: 4%;
             max-width: 130px;
             max-height: 205px;
+            
+            
             .card-frame {
                 width: 100%;
                 height: 100%;
@@ -78,6 +83,11 @@ export default {
                     width: 60%;
                     margin-bottom: 4%;
                 }
+            }
+            p{
+            width: 14vw;
+            height: 22vw; 
+            
             }
         }
     }
