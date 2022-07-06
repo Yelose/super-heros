@@ -4,10 +4,6 @@ import { userCardsFavoritesStore } from '../stores/favorites';
 import Rating from './Rating.vue';
 import Notes from './Notes.vue';
 
-
-
-
-
 export default {
     computed: {
         ...mapState(userCardsFavoritesStore, {
@@ -71,6 +67,16 @@ export default {
             </div>
 
         </section>
+
+        <section class="biography-container">
+             <h3 v-if="superHero.fullName !=''">{{superHero.biography.fullName}}</h3>
+             <h3 v-else>{{superHero.name}}</h3>
+             <p v-if="superHero.connections.groupAffiliation !='-'">Group Affiliation: {{superHero.connections.groupAffiliation}}</p>
+             <p v-if="superHero.connections.relatives !='-'">Relatives: {{superHero.connections.relatives}}</p>
+             <p v-if="superHero.work.occupation !='-'">Occupation: {{superHero.work.occupation}}</p>
+
+        </section>
+
         <section class="notes-rating-container">
             <div class="my-notes-container">
                 <Notes />
@@ -131,7 +137,7 @@ export default {
     border-radius: calc(0.3vw + 0.3vh);
     margin-top: 5vh;
     padding: 2px;
-
+    
     .card-stats-container {
         display: flex;
         flex-flow: row nowrap;
@@ -177,6 +183,11 @@ export default {
             display: flex;
             flex-flow: column nowrap;
             justify-content: space-between;
+        }
+    }
+    .biography-container{
+        p{
+            color: rgb(255, 255, 255);
         }
     }
     .notes-rating-container{
