@@ -1,6 +1,7 @@
 <script setup>
 import Home from "../components/Home.vue";
 import MyCards from "../components/MyCards.vue";
+
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import MyCards from "../components/MyCards.vue";
     </section>
     <aside>
       <MyCards></MyCards>
+      
     </aside>
   </main>
 </template>

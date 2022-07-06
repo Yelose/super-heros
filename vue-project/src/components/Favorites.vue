@@ -2,13 +2,14 @@
 import { mapState } from "pinia";
 import { userCardsFavoritesStore} from "../stores/favorites";
 import Card from "./Card.vue";
+import Notes from "../components/Notes.vue"
 export default {
     computed: {
         ...mapState(userCardsFavoritesStore, {
             favoritesHeroes: "favoritesHeroes"
         })
     },
-    components: { Card }
+    components: { Card, Notes }
 }
 </script>
  
@@ -17,11 +18,13 @@ export default {
         <button>
             <h3>Add my personalized card</h3>
         </button>
+      
         <div id="test" v-for="cardsfavorites in Cardsfavorites" :key="key"  style="color:white;">
             {{ cardsfavorites }}
         </div>
-        <Card></Card>
-    </main>
+       
+        <Card> </Card>
+        </main>
 </template>
 <style lang="scss">
 .favorites-container {
@@ -40,11 +43,15 @@ export default {
         order: 100000;
     }
     .favorites-item-container {
+        justify-content: space-between;
         width: 100%;
         border: 3px solid #CFA25B;
         border-radius: calc(0.3vw + 0.3vh);
         margin-top: 5vh;
         padding: 2px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
         .card-container {
             background: rgb(53, 53, 53);
             width: 14vw;
@@ -52,6 +59,8 @@ export default {
             border-radius: 4%;
             max-width: 130px;
             max-height: 205px;
+            
+            
             .card-frame {
                 width: 100%;
                 height: 100%;
@@ -74,6 +83,11 @@ export default {
                     width: 60%;
                     margin-bottom: 4%;
                 }
+            }
+            p{
+            width: 14vw;
+            height: 22vw; 
+            
             }
         }
     }
