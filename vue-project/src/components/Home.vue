@@ -1,5 +1,5 @@
 <script>
-import { mapActions } from 'pinia'
+import { mapActions, mapState } from 'pinia'
 import { userCardsFavoritesStore } from '../stores/favorites'
 
 export default {
@@ -11,6 +11,11 @@ export default {
             // audio: "/src/assets/audio/clin.mp3",
         };
     },
+    computed: {
+        ...mapState(userCardsFavoritesStore, {
+            favoritesHeroes: "favoritesHeroes"
+        })
+    },
     methods: {
         loadSuperHeroes: async function () {
             let superHeroesRequest = await fetch("https://akabab.github.io/superhero-api/api/all.json");
@@ -18,8 +23,12 @@ export default {
             return superHeroes;
         },
         filterSuperHeroes(superHeroes) {
-            return superHeroes.filter(p => p.name.toLowerCase().indexOf(this.superHeroSearch.toLowerCase()) != -1 &&
-                !(this.favoritesHeroes.find(q => q.id == p.id)));
+            let favorites = this.favoritesHeroes || []
+            console.log(favorites.length)
+            return superHeroes.filter(p =>
+                p.name.toLowerCase().indexOf(this.superHeroSearch.toLowerCase()) != -1 &&
+                !(favorites.find(q => q.id == p.id))
+            )
         },
         shortenSuperHeroes(superHeroes) {
             return superHeroes.splice(0, 40);
@@ -30,10 +39,10 @@ export default {
         },
         ...mapActions(userCardsFavoritesStore, ["addFavorite"]),
         selectFavorite(superHero) {
-            this.favoritesHeroes.push(superHero)
+            // this.favoritesHeroes.push(superHero)
             //this.newSuperToAdd = superHero;
-            this.addFavorite(superHero);
-            this.searchSuperHeroes();
+            this.addFavorite(superHero)
+            this.searchSuperHeroes()
         },
         getRaces() {
             let races = [];
@@ -90,12 +99,17 @@ export default {
         // }
     },
     mounted: async function () {
-        this.favoritesHeroes = this.favoritesHeroes || [];
-        this.superHeroes = await this.loadSuperHeroes();
-        this.superHeroesShort = this.filterSuperHeroes(this.superHeroes);
-        this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort);
-        this.$root.races = this.getRaces();
-    },
+        //this.favoritesHeroes = this.favoritesHeroes || []
+        this.superHeroes = await this.loadSuperHeroes()
+        this.superHeroesShort = this.filterSuperHeroes(this.superHeroes)
+        this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort)
+        this.$root.races = this.getRaces()
+        window.homeInstance = this
+        window.updateCards = async () => {
+            this.searchSuperHeroes()
+            this.$forceUpdate()
+        }
+    }
 }
 </script>
  

@@ -28,14 +28,16 @@ export default {
     width: calc(83vw - 150px);
     padding: 3vw;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column-reverse nowrap;
     align-items: flex-start;
+    margin-bottom: 10vh;
     button {
         background-color: hsla(0, 0%, 0%, 0.6);
         border-radius: calc(0.3vw + 0.3vh);
         border-color: #CFA25B;
         width: 100%;
         padding: 1vh 1vw;
+        order: 100000;
     }
     .favorites-item-container {
         width: 100%;
