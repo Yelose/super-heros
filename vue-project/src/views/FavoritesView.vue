@@ -1,11 +1,8 @@
 <script setup>
 import Favorites from "@/components/Favorites.vue";
 import MyCards from "../components/MyCards.vue";
-<<<<<<< HEAD
-
-=======
 import Notes from "../components/Notes.vue";
->>>>>>> develop
+
 </script>
 
 <template>
