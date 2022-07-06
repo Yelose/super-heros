@@ -1,5 +1,7 @@
 <script>
-
+    function rate(){
+        
+    }
 </script>
 <template>
     <div>
@@ -21,7 +23,7 @@
         </form>
     </div>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 div {
     form {        
         .score {
