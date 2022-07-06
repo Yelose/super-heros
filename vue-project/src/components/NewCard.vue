@@ -66,7 +66,10 @@
 
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped>a,
+button {
+  cursor: url("/src/assets/img/cursordedo.png"), help;
+}
 .add-img {
     width: 2vw;
     margin:2vw 2vw 5vw 2vw;
