@@ -3,22 +3,21 @@ import { mapState } from "pinia";
 import { userCardsFavoritesStore} from "../stores/favorites";
 import Card from "./Card.vue";
 import Notes from "../components/Notes.vue"
+import NewCard from "./NewCard.vue";
+
 export default {
     computed: {
         ...mapState(userCardsFavoritesStore, {
             favoritesHeroes: "favoritesHeroes"
         })
     },
-    components: { Card, Notes }
+    components: { Card, Notes, NewCard }
 }
 </script>
  
 <template>
     <main class="favorites-container">
-        <button>
-            <h3>Add my personalized card</h3>
-        </button>
-      
+        <NewCard />
         <div id="test" v-for="cardsfavorites in Cardsfavorites" :key="key"  style="color:white;">
             {{ cardsfavorites }}
         </div>

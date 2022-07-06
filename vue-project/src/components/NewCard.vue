@@ -42,7 +42,7 @@
                         placeholder="Add Name"
                         >
                     </div>
-                <img class="add-img" src="https://cdn-icons-png.flaticon.com/512/1250/1250854.png">
+                    <input class="add-img" type="image" src="https://cdn-icons-png.flaticon.com/512/1250/1250854.png" alt="Submit">
                 <div class="card-stats-container">
                     <section class="stat-bar">
                         <img class="stat-img" src="/src/assets/img/espada2.png" alt="">
