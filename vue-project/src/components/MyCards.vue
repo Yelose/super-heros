@@ -57,11 +57,15 @@ export default {
 .my-cards-container {
     position: fixed;
     top: calc(16vh + 5vw);
-    right: 0;
+    right: 3vw;
     height: calc(75vh - 5vw);
-    padding: 1vh 2vw;
+    padding: 1vh 0;
     overflow: auto;
-    width: calc(15vw + 150px);
+    width: calc(14vw + 150px);
+
+.my-cards-container::-webkit-scrollbar{
+    border-radius: 4px;
+}
 
     header {
         top: calc(12vh + 5vw);

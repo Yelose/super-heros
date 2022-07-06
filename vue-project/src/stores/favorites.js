@@ -15,7 +15,6 @@ export const userCardsFavoritesStore = defineStore({
       },
       deleteFavorite(favoriteHero) {
         this.favoritesHeroes.splice(this.favoritesHeroes.indexOf(favoriteHero), 1)
-        console.log(this.favoritesHeroes.length)
         if (window.updateCards != null) {
           window.updateCards.call(window.homeInstance)
         }
