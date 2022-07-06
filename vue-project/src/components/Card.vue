@@ -1,7 +1,10 @@
 <script>
 import { mapState } from 'pinia';
 import { userCardsFavoritesStore } from '../stores/favorites';
-import CardStats from './CardStats.vue';
+
+
+
+
 
 export default {
     computed: {
@@ -9,7 +12,7 @@ export default {
             favoritesHeroes: "favoritesHeroes"
         })
     },
-    components: { CardStats }
+
 }
 </script>
 <template>
@@ -36,47 +39,57 @@ export default {
                     </section>
                 </div>
             </div>
+
         </div>
-        <p class="int">
-          {{ "INT" }}:{{ superHero.powerstats.intelligence }}
-        </p>
-                <p  class="str">
-          {{ "STR" }}:{{ superHero.powerstats.strength  }}
-        </p>
-                <p  class="spd">
-          {{ "SPD" }}:{{ superHero.powerstats.speed }}
-        </p>
-                <p  class="dur">
-          {{ "DUR" }}:{{ superHero.powerstats.durability }}
-        </p>
-                <p  class="pow">
-          {{ "POW" }}:{{ superHero.powerstats.power }}
-        </p>
-                <p  class="com">
-          {{ "COM" }}:{{ superHero.powerstats.combat }}
-        </p>
+        <div>
+            <p class="int">
+                {{ "INT" }}:{{ superHero.powerstats.intelligence }}
+            </p>
+            <p class="str">
+                {{ "STR" }}:{{ superHero.powerstats.strength }}
+            </p>
+            <p class="spd">
+                {{ "SPD" }}:{{ superHero.powerstats.speed }}
+            </p>
+            <p class="dur">
+                {{ "DUR" }}:{{ superHero.powerstats.durability }}
+            </p>
+            <p class="pow">
+                {{ "POW" }}:{{ superHero.powerstats.power }}
+            </p>
+            <p class="com">
+                {{ "COM" }}:{{ superHero.powerstats.combat }}
+            </p>
+        </div>
+
     </div>
 
 </template>
 <style lang="scss">
-.int{
+.int {
     background-color: #FFF27D;
 }
-.str{
+
+.str {
     background-color: #DF5F5F;
 }
-.spd{
+
+.spd {
     background-color: #A19740;
 }
-.dur{
+
+.dur {
     background-color: #7BA4F3;
 }
-.pow{
+
+.pow {
     background-color: #824084;
 }
-.com{
+
+.com {
     background-color: #9CA69D;
 }
+
 .favorites-item-container {
     display: flex;
     flex-direction: column;
@@ -120,5 +133,7 @@ export default {
             }
         }
     }
+ 
 }
+
 </style>

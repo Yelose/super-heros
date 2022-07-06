@@ -13,9 +13,9 @@ export default {
 </script>
 
 <template>
- <main>
+<!--  <main>
     <div class="stats-cards-container" v-for="(superHero, index) in favoritesHeroes">
-      <section>
+      <section> -->
  <!--        <p v-bind:style="{ background: superHero.color }" class="initials">
           {{ "INT" }}:{{ superHero.powerstats.intelligence }}
         </p> -->
@@ -34,11 +34,11 @@ export default {
                 <p v-bind:style="{ background: superHero.color }" class="initials">
           {{ "COM" }}:{{ superHero.powerstats.combat }}
         </p> -->
-      </section>
+<!--       </section>
 
     </div>
   </main>
-
+ -->
 
 
 </template>

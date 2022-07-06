@@ -2,14 +2,14 @@
 import { mapState } from "pinia";
 import { userCardsFavoritesStore} from "../stores/favorites";
 import Card from "./Card.vue";
-import CardStats from "./CardStats.vue";
+
 export default {
     computed: {
         ...mapState(userCardsFavoritesStore, {
             favoritesHeroes: "favoritesHeroes"
         })
     },
-    components: { Card, CardStats }
+    components: { Card,  }
 }
 </script>
  
@@ -22,7 +22,6 @@ export default {
             {{ cardsfavorites }}
         </div>
         <Card></Card>
-        <CardStats></CardStats>
     </main>
 </template>
 <style lang="scss">
