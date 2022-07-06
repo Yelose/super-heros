@@ -1,8 +1,8 @@
 <script>
 import { mapState } from 'pinia';
 import { userCardsFavoritesStore } from '../stores/favorites';
-import Rating from './Rating.vue';
 import Notes from './Notes.vue';
+import Rating from './Rating.vue';
 
 
 
@@ -75,24 +75,13 @@ export default {
             <div class="my-notes-container">
                 <Notes />
             </div>
-            <div class="rating-container">
-                <form>
-                    <div class="score">
-                        <div class="score-container">
-                            <input id="radio1" type="radio" name="estrellas" value="5">
-                            <label for="radio1">★</label>
-                            <input id="radio2" type="radio" name="estrellas" value="4">
-                            <label for="radio2">★</label>
-                            <input id="radio3" type="radio" name="estrellas" value="3">
-                            <label for="radio3">★</label>
-                            <input id="radio4" type="radio" name="estrellas" value="2">
-                            <label for="radio4">★</label>
-                            <input id="radio5" type="radio" name="estrellas" value="1">
-                            <label for="radio5">★</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
+ <div id="Rating">
+
+  
+  <p><strong></strong></p>
+  <Rating></Rating>
+
+</div>
         </section>
     </div>
 
@@ -179,7 +168,7 @@ export default {
             justify-content: space-between;
         }
     }
-    .notes-rating-container{
+/*     .notes-rating-container{
             form {        
         .score {
             direction: rtl;
@@ -205,7 +194,7 @@ export default {
         }
     }
 
-    }
+    } */
 
 }
 </style>
