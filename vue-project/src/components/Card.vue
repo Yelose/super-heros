@@ -1,6 +1,7 @@
 <script>
 import { mapState } from 'pinia';
 import { userCardsFavoritesStore } from '../stores/favorites';
+import Notes from './Notes.vue';
 
 
 
@@ -12,12 +13,14 @@ export default {
             favoritesHeroes: "favoritesHeroes"
         })
     },
-
+    components: { Notes }
 }
 </script>
 <template>
+              
     <div v-for="superHero in favoritesHeroes" class="favorites-item-container"
         v-bind:style="{ background: superHero.color + '80' }">
+       
         <div class="card-container" v-bind:style="{ background: superHero.color }">
             <div class="card-frame">
                 <h4>{{ superHero.name }}</h4>
@@ -31,6 +34,8 @@ export default {
                         </div>
                     </section>
                     <section class="stat-bar">
+                       
+                        
                         <img class="stat-img" src="/src/assets/img/escudo2.png" alt="">
                         <div class="colorless-bar">
                             <div class="def-bar" v-bind:style="{ width: superHero.powerstats.durability + '%' }">
@@ -62,6 +67,7 @@ export default {
             </p>
         </div>
 
+        <Notes/>
     </div>
 
 </template>
