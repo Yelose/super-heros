@@ -49,7 +49,7 @@ export default {
         margin-top: 5vh;
         padding: 2px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         .card-container {
             background: rgb(53, 53, 53);
