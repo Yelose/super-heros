@@ -13,6 +13,7 @@
 </template>
 <style lang="scss" scoped>
 .mynotes-container{
+   margin-bottom: 1vw;
    margin-right: 2vw;
    display:flex;
    flex-flow: column;
@@ -29,13 +30,20 @@
             background-size:contain;
             background-position: center;
    }
+   form{
+     
+      width: 4vw;
+      height: 2nw;
+      border:1px solid #e10c0cf5;
+   }
      .text{
            -webkit-transform:rotate(-90deg);
             background-color: transparent;
             width: 80%;
             height: 800%;
             padding:2vh; 
-            border: none;  
+            border: none;
+            resize: none;  
      }
      p{
       font-family:'Kenia', cursive;

@@ -100,11 +100,7 @@ export default {
                 <Notes />
             </div>
  <div id="Rating">
-
-  
-  <p><strong></strong></p>
   <Rating></Rating>
-
 </div>
         </section>
 
@@ -201,44 +197,5 @@ export default {
         }
     }
 
-    .notes-rating-container {
-        form {
-            .score {
-                direction: rtl;
-                unicode-bidi: bidi-override;
-
-                input {
-                    display: none;
-                }
-
-                label {
-                    color: rgb(139, 117, 66);
-                    font-size: 20px;
-                    transition: transform 1s ease-out;
-                }
-            }
-
-            label:hover,
-            label:hover~label {
-                color: orange;
-            }
-
-            input:checked~label {
-                color: orange;
-            }
-        }
-
-        label:hover,
-        label:hover~label {
-            color: orange;  
-        }
-
-        input:checked~label {
-            color: orange;
-        }
-    }
-
-    } 
-
-
+}
 </style>
