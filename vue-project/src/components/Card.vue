@@ -179,33 +179,6 @@ export default {
             color: rgb(255, 255, 255);
         }
     }
-    .notes-rating-container{
-            form {        
-        .score {
-            direction: rtl;
-            unicode-bidi: bidi-override;
-            input {
-                display: none;
-            }
-
-            label {
-                color: rgb(139, 117, 66);
-                font-size: 20px;
-                transition: transform 1s ease-out;
-            }
-        }
-
-        label:hover,
-        label:hover~label {
-            color: orange;  
-        }
-
-        input:checked~label {
-            color: orange;
-        }
-    }
-
-    } 
 
 }
 </style>

@@ -13,33 +13,6 @@ export default {
 </script>
 
 <template>
-<!--  <main>
-    <div class="stats-cards-container" v-for="(superHero, index) in favoritesHeroes">
-      <section> -->
- <!--        <p v-bind:style="{ background: superHero.color }" class="initials">
-          {{ "INT" }}:{{ superHero.powerstats.intelligence }}
-        </p> -->
-<!--         <p v-bind:style="{ background: superHero.color }" class="initials">
-          {{ "STR" }}:{{ superHero.powerstats.strength }}
-        </p>
-                <p v-bind:style="{ background: superHero.color }" class="initials">
-          {{ "SPD" }}:{{ superHero.powerstats.speed }}
-        </p>
-                <p v-bind:style="{ background: superHero.color }" class="initials">
-          {{ "DUR" }}:{{ superHero.powerstats.durability }}
-        </p>
-                <p v-bind:style="{ background: superHero.color }" class="initials">
-          {{ "POW" }}:{{ superHero.powerstats.power }}
-        </p>
-                <p v-bind:style="{ background: superHero.color }" class="initials">
-          {{ "COM" }}:{{ superHero.powerstats.combat }}
-        </p> -->
-<!--       </section>
-
-    </div>
-  </main>
- -->
-
 
 </template>
 
