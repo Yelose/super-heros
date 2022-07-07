@@ -63,6 +63,7 @@ export default {
     padding: 1vh 0;
     overflow: auto;
     width: calc(14vw + 150px);
+    overflow-y: scroll;
 
     header {
         top: calc(12vh + 5vw);
@@ -151,19 +152,22 @@ export default {
 }
 
 .my-cards-container::-webkit-scrollbar{
-    border-radius: 2px;
+    width: 4em;
 }
 .my-cards-container::-webkit-scrollbar-thumb {
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ01w0TW20r-sUaqFLD2E8rF4WbGnudBsYxQ&usqp=CAU);
-  border-radius: 4px;
+  background-image: url(https://www.pngmart.com/files/7/Ruby-PNG-File.png),
+    linear-gradient(100deg, transparent, transparent);
+ 
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
 }
 
 .my-cards-container::-webkit-scrollbar-thumb:active {
-  background-color: #999999;
+  background-color: #99999900;
 }
 
 .my-cards-container::-webkit-scrollbar-thumb:hover {
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ01w0TW20r-sUaqFLD2E8rF4WbGnudBsYxQ&usqp=CAU);
+  background-image: url(https://www.pngmart.com/files/7/Ruby-PNG-File.png);
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 

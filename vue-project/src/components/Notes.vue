@@ -35,7 +35,8 @@
             width: 80%;
             height: 800%;
             padding:2vh; 
-            border: none;  
+            border: none;
+            resize: none;  
      }
      p{
       font-family:'Kenia', cursive;

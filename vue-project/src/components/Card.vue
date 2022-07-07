@@ -85,7 +85,6 @@ export default {
 
   
   <p><strong></strong></p>
-  <Rating></Rating>
 
 </div>
         </section>
