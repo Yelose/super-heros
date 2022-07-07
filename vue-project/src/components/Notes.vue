@@ -33,7 +33,7 @@
    form{
      
       width: 4vw;
-      height: 2nw;
+      height: 2vW;
       border:1px solid #e10c0cf5;
    }
      .text{

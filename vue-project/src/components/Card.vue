@@ -113,6 +113,7 @@ export default {
     background-color: #9CA69D;
 }
 
+
 .favorites-item-container {
     display: flex;
     flex-flow: row nowrap;
@@ -127,6 +128,7 @@ export default {
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-start;
+ 
 
         .card-container {
             background: rgb(53, 53, 53);
@@ -171,10 +173,20 @@ export default {
         }
     }
     .biography-container{
+        height: calc(30vh - 5vw);
+        overflow: auto;
+        width: 40%;
+
         p{
+           
             color: rgb(255, 255, 255);
+            width: 50%;
         }
+    }
+    #Rating{
+        width: 15vw;
     }
 
 }
+
 </style>
