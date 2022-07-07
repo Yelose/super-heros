@@ -39,8 +39,6 @@ export default {
         width: 100%;
         border: 3px solid #CFA25B;
         border-radius: calc(0.3vw + 0.3vh);
-        margin-top: 5vh;
-        padding: 2px;
         display: flex;
         justify-content: space-between;
         align-items: center;

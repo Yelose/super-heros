@@ -145,20 +145,13 @@ export default {
     margin-top: 5vh;
     padding: 2px;
 
-    .card-stats-container {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
- 
-
         .card-container {
-            background: rgb(53, 53, 53);
-            width: 14vw;
-            height: 22vw;
+            
+            height: 24vw;
             border-radius: 4%;
-            max-width: 130px;
-            max-height: 205px;
-
+            max-width: 190px;
+            max-height: 295px;
+            margin-left: 8%;
             .card-frame {
                 width: 100%;
                 height: 100%;
@@ -181,7 +174,7 @@ export default {
 
                 .hero-img-md {
                     width: 60%;
-                    margin-bottom: 4%;
+                    margin-bottom: 3%;
                 }
             }
 
@@ -191,23 +184,64 @@ export default {
             display: flex;
             flex-flow: column nowrap;
             justify-content: space-between;
+            margin-left: 8%;
         }
     }
     .biography-container{
+        padding-top: 3vh;
         height: calc(30vh - 5vw);
+        text-align:left;  
         overflow: auto;
-        width: 40%;
-
+        width: 100%;
+        min-width: 120px;
         p{
-           
+            margin-top: 2%;
             color: rgb(255, 255, 255);
-            width: 50%;
+            width: 90%;
         }
     }
-    #Rating{
-        width: 15vw;
+    .notes-rating-container{
+        text-align: center;
+       
     }
+    #Rating{
+        width: calc(9vw + 9vh);
+        height: calc(1vw + 2vh);
+    }
+        
+            .card-stats-container {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-start;
 
 }
+.biography-container::-webkit-scrollbar{
+    width: 3em;
+}
+.biography-container::-webkit-scrollbar-thumb {
+  background-image: url(https://www.pngmart.com/files/7/Ruby-PNG-File.png),
+    linear-gradient(100deg, transparent, transparent);
+ 
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
+}
 
+.biography-container::-webkit-scrollbar-thumb:active {
+ background-color: transparent;
+}
+
+.biography-container::-webkit-scrollbar-thumb:hover {
+  background-image: url(https://www.pngmart.com/files/7/Ruby-PNG-File.png);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.biography-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+}
+
+.biography-container::-webkit-scrollbar-track:hover, 
+.biography-container::-webkit-scrollbar-track:active {
+  background: rgba(0, 0, 0, 0);
+}
 </style>
