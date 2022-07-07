@@ -16,8 +16,8 @@ export default {
 </script>
  
 <template>
+    <NewCard />
     <main class="favorites-container">
-        <NewCard />
         <div id="test" v-for="cardsfavorites in Cardsfavorites" :key="key"  style="color:white;">
             {{ cardsfavorites }}
         </div>
@@ -33,14 +33,7 @@ export default {
     flex-flow: column-reverse nowrap;
     align-items: flex-start;
     margin-bottom: 10vh;
-    button {
-        background-color: hsla(0, 0%, 0%, 0.6);
-        border-radius: calc(0.3vw + 0.3vh);
-        border-color: #CFA25B;
-        width: 100%;
-        padding: 1vh 1vw;
-        order: 100000;
-    }
+
     .favorites-item-container {
         justify-content: space-between;
         width: 100%;
@@ -51,6 +44,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         .card-container {
             background: rgb(53, 53, 53);
             width: 14vw;
@@ -58,7 +52,6 @@ export default {
             border-radius: 4%;
             max-width: 130px;
             max-height: 205px;
-            
             
             .card-frame {
                 width: 100%;
@@ -72,17 +65,20 @@ export default {
                 background-size: cover;
                 background-position: center;
                 border-radius: 4%;
+
                 h4 {
                     margin-top: 17%;
                     font-size: clamp(8px, 1.5vw, 15px);
                     color: #D9D9D9;
                     font-weight: 100;
                 }
+
                 .hero-img-md {
                     width: 60%;
                     margin-bottom: 4%;
                 }
             }
+            
             p{
             width: 14vw;
             height: 22vw; 

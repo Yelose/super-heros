@@ -8,7 +8,6 @@ export default {
             superHeroes: [],
             superHeroSearch: "",
             superHeroesShort: [],
-            // audio: "/src/assets/audio/clin.mp3",
         };
     },
     computed: {
@@ -38,7 +37,7 @@ export default {
             this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort);
         },
         ...mapActions(userCardsFavoritesStore, ["addFavorite"]),
-        selectFavorite(superHero) {
+        selectFavorite(superHero) {   
             // this.favoritesHeroes.push(superHero)
             //this.newSuperToAdd = superHero;
             this.addFavorite(superHero)
@@ -81,6 +80,7 @@ export default {
             });
             return races;
         },
+
         // giveColor(hero) {
         //     color = ""
         //     let mestizosColor = "#260E08"

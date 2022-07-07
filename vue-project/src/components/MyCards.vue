@@ -151,10 +151,10 @@ export default {
 
 }
 
-.my-cards-container::-webkit-scrollbar{
+.::-webkit-scrollbar{
     width: 4em;
 }
-.my-cards-container::-webkit-scrollbar-thumb {
+.r::-webkit-scrollbar-thumb {
   background-image: url(https://www.pngmart.com/files/7/Ruby-PNG-File.png),
     linear-gradient(100deg, transparent, transparent);
  
@@ -162,8 +162,8 @@ export default {
   background-size: contain, contain;
 }
 
-.my-cards-container::-webkit-scrollbar-thumb:active {
-  background-color: #99999900;
+.::-webkit-scrollbar-thumb:active {
+  background-color: #999999c9;
 }
 
 .my-cards-container::-webkit-scrollbar-thumb:hover {
@@ -171,7 +171,6 @@ export default {
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
- /* Estilos track de scroll */
 .my-cards-container::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0);
   border-radius: 4px;

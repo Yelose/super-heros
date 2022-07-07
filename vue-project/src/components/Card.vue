@@ -99,16 +99,14 @@ export default {
             <div class="my-notes-container">
                 <Notes />
             </div>
- <div id="Rating">
-
-  
-  <p><strong></strong></p>
-
+<div id="Rating">
+  <Rating></Rating>
 </div>
         </section>
 
 
     </div>
+
 
 </template>
 <style lang="scss">
