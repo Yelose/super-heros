@@ -153,44 +153,34 @@ export default {
     }
 
 }
+.my-cards-container::-webkit-scrollbar{
+    width: 4em;
+}
+.my-cards-container::-webkit-scrollbar-thumb {
+  background-image: url(https://www.pngmart.com/files/7/Ruby-PNG-File.png),
+    linear-gradient(100deg, transparent, transparent);
+ 
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
+}
+
+.my-cards-container::-webkit-scrollbar-thumb:active {
+ background-color: transparent;
+}
+
+.my-cards-container::-webkit-scrollbar-thumb:hover {
+  background-image: url(https://www.pngmart.com/files/7/Ruby-PNG-File.png);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.my-cards-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+}
+
+.my-cards-container::-webkit-scrollbar-track:hover, 
+.my-cards-container::-webkit-scrollbar-track:active {
+  background: rgba(0, 0, 0, 0);
+}
 </style>
 
-<!-- <template>
-
-    <div class="my-cards-container">
-        <header>
-            <h3>My Cards</h3>
-            <img src="../assets/img/star.png" alt="star">
-        </header>
-        <main>
-            <div v-for="hero in favoritesHeroes" :key="key">
-                <p>{{ hero.name }}</p>
-                <p v-on:click="deleteFavorite(hero)">X</p>
-            </div>
-        </main>
-    </div>
-</template>
-
-<style lang="scss">
-.my-cards-container {
-  position: fixed;
-  top: calc(14vh + 5vw);
-  right: 0;
-  height: calc(83vh - 5vw);
-  padding: 1vh 2vw;
-  overflow: auto;
-  width: calc(15vw + 150px);
-  background-color: rgba(255, 0, 0, 0.149);
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {
-      width: 2vw;
-      max-width: 25px;
-      min-width: 18px;
-      margin-left: 0.5vw;
-    }
-  }
-}
-</style> -->

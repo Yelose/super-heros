@@ -17,7 +17,7 @@ export const userStatsStore = defineStore({
           initials: "STR",
           description:
             "is a  measure of how physically strong a character is, it controls the power and damage of melee attacks, the maximum weight the character can carry, and hit points. Armor and weapons might also have a Strength requirement to use them. A measure of how sturdy a character is",
-          image: "/src/assets/img/bla.com",
+          image: "/src/assets/img/espada2.png",
           color: "#DF5F5F",
         },
         {
@@ -25,7 +25,7 @@ export const userStatsStore = defineStore({
           initials: "SPD",
           description:
             "or movement is an inherited trait possessed by every living being. Even the most stationary of animals like the tube worm weave and dance gracefully at the ocean floor.",
-          image: "src:blablabl",
+          image: "/src/assets/img/destello.png",
           color: "#A19740",
         },
         {
@@ -33,7 +33,7 @@ export const userStatsStore = defineStore({
           initials: "DUR",
           description:
             "is the property which guarantees the ability to survive a certain amount of force. Not to be confused with Endurance. Durability is the ability to withstand damage, while Endurance is a measure of stamina.",
-          image: "src:blablabl",
+          image: "/src/assets/img/escudo2.png",
           color: "#7BA4F3",
         },
         {
@@ -41,7 +41,7 @@ export const userStatsStore = defineStore({
           initials: "POW",
           description:
             "stat affect your capability of using different kind of weapons, the more power your hero has, the heavier weapon she or he can equip, and the heavier shield.",
-          image: "src:blablabl",
+          image: "/src/assets/img/potion.png",
           color: "#824084",
         },
         {
@@ -49,7 +49,7 @@ export const userStatsStore = defineStore({
           initials: "COM",
           description:
             "refers to the chance of a critical strike in combat. Critical strikes increase damage by a substantial amount, ranging from 1.5 times damage, all the way up to 10, and more. This attribute is often favorable for characters that attack fast, such as dual wielding classes.",
-          image: "src:blablabl",
+          image: "/src/assets/img/combat.png",
           color: "#9CA69D",
         },
       ],

@@ -1,51 +1,105 @@
 <script>
+export default {
+    props: {
+        'name': String,
+        'value': null,
+        'id': String,
+        'disabled': Boolean,
+        'required': Boolean
+    },
 
-</script>
-<template>
-    <div>
-        <form>
-            <div class="score">
-            <div   class="score-container">
-                <input id="radio1" type="radio" name="estrellas" value="5">
-                <label for="radio1">★</label>
-                <input id="radio2" type="radio" name="estrellas" value="4">
-                <label for="radio2">★</label>
-                <input id="radio3" type="radio" name="estrellas" value="3">
-                <label for="radio3">★</label>
-                <input id="radio4" type="radio" name="estrellas" value="2">
-                <label for="radio4">★</label>
-                <input id="radio5" type="radio" name="estrellas" value="1">
-                <label for="radio5">★</label>
-             </div>
-            </div>
-        </form>
-    </div>
-</template>
-<style lang="scss" scoped>
-div {
-    form {        
-        .score {
-            direction: rtl;
-            unicode-bidi: bidi-override;
-            input {
-                display: none;
+    data() {
+        return {
+            temp_value: null,
+            ratings: [1, 2, 3, 4, 5]
+        }
+    },
+
+    methods: {
+
+        star_over: function (index) {
+            var self = this;
+
+            if (!this.disabled) {
+                this.temp_value = this.value;
+                return this.value = index;
             }
 
-            label {
-                color: rgb(139, 117, 66);
-                font-size: 20px;
-                transition: transform 1s ease-out;
+        },
+
+        star_out: function () {
+            var self = this;
+
+            if (!this.disabled) {
+                return this.value = this.temp_value;
             }
-        }
+        },
 
-        label:hover,
-        label:hover~label {
-            color: orange;  
-        }
+        set: function (value) {
+            var self = this;
 
-        input:checked~label {
-            color: orange;
-        }
+            if (!this.disabled) {
+                this.temp_value = value;
+                return this.value = value;
+            }
+        },
     }
 }
+
+</script>
+
+<template>
+
+    <div class="Rating">
+        <label class="Rating__star" v-for="rating in ratings" :class="{
+            'is-selected'
+                : ((value >= rating) && value != null), 'is-disabled': disabled
+        }" v-on:click="set(rating)" v-on:mouseover="star_over(rating)" v-on:mouseout="star_out">
+            <input class="Rating Rating__checkbox" type="radio" :value="rating" :name="name" v-model="value"
+                :disabled="disabled">★</label>
+    </div>
+
+</template>
+
+<style lang="scss" scoped>
+
+  %visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+
+  .Rating {
+
+    &__star {
+        display: inline-block;
+        padding: 3px;
+        vertical-align: middle;
+        line-height: 1;
+        font-size: 1.5em;
+        color: #ABABAB;
+        transition: color .2s ease-out;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.is-selected {
+            color: #FFD700;
+        }
+
+        &.is-disabled:hover {
+            cursor: default;
+        }
+    }
+
+    &__checkbox {
+        @extend %visually-hidden;
+    }
+  }
 </style>

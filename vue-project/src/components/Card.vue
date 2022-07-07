@@ -1,8 +1,10 @@
 <script>
 import { mapState } from 'pinia';
 import { userCardsFavoritesStore } from '../stores/favorites';
-import Rating from './Rating.vue';
 import Notes from './Notes.vue';
+import Rating from './Rating.vue';
+
+
 
 export default {
     computed: {
@@ -10,7 +12,23 @@ export default {
             favoritesHeroes: "favoritesHeroes"
         })
     },
-    components: { Notes, Rating }
+    methods: {
+        
+        calificar(favorites) {
+            let cont;
+            console.log(favorites)
+            cont = favorites.id[0];
+            let nombre = favorites.id.substring(1);
+            for (let i = 0; i < 5; i++) {
+                if (i < cont) {
+                    document.getElementById((i + 1) + nombre).style.color = "orange";
+                }
+            }
+            
+
+        }
+    },
+    components: { Notes, Rating },
 
 }
 </script>
@@ -69,8 +87,8 @@ export default {
         </section>
 
         <section class="biography-container">
-             <h3 v-if="superHero.biography.fullName !=''">{{superHero.biography.fullName}}</h3>
-             <h3 v-else>{{superHero.name}}</h3>
+             <h3 v-if="superHero.fullName !==''">{{superHero.name}}</h3>
+             <h3 v-else>{{superHero.biography.fullName}}</h3>
              <p v-if="superHero.connections.groupAffiliation !='-'">Group Affiliation: {{superHero.connections.groupAffiliation}}</p>
              <p v-if="superHero.connections.relatives !='-'">Relatives: {{superHero.connections.relatives}}</p>
              <p v-if="superHero.work.occupation !='-'">Occupation: {{superHero.work.occupation}}</p>
@@ -81,25 +99,12 @@ export default {
             <div class="my-notes-container">
                 <Notes />
             </div>
-            <div class="rating-container">
-                <form>
-                    <div class="score">
-                        <div class="score-container">
-                            <input id="radio1" type="radio" name="estrellas" value="5">
-                            <label for="radio1">★</label>
-                            <input id="radio2" type="radio" name="estrellas" value="4">
-                            <label for="radio2">★</label>
-                            <input id="radio3" type="radio" name="estrellas" value="3">
-                            <label for="radio3">★</label>
-                            <input id="radio4" type="radio" name="estrellas" value="2">
-                            <label for="radio4">★</label>
-                            <input id="radio5" type="radio" name="estrellas" value="1">
-                            <label for="radio5">★</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
+ <div id="Rating">
+  <Rating></Rating>
+</div>
         </section>
+
+
     </div>
 
 </template>
@@ -128,6 +133,7 @@ export default {
     background-color: #9CA69D;
 }
 
+
 .favorites-item-container {
     display: flex;
     flex-flow: row nowrap;
@@ -137,20 +143,14 @@ export default {
     border-radius: calc(0.3vw + 0.3vh);
     margin-top: 5vh;
     padding: 2px;
-    
-    .card-stats-container {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
 
         .card-container {
-            background: rgb(53, 53, 53);
-            width: 14vw;
-            height: 22vw;
+            
+            height: 24vw;
             border-radius: 4%;
-            max-width: 130px;
-            max-height: 205px;
-
+            max-width: 190px;
+            max-height: 295px;
+            margin-left: 8%;
             .card-frame {
                 width: 100%;
                 height: 100%;
@@ -173,7 +173,7 @@ export default {
 
                 .hero-img-md {
                     width: 60%;
-                    margin-bottom: 4%;
+                    margin-bottom: 3%;
                 }
             }
 
@@ -183,40 +183,64 @@ export default {
             display: flex;
             flex-flow: column nowrap;
             justify-content: space-between;
+            margin-left: 8%;
         }
     }
     .biography-container{
+        padding-top: 3vh;
+        height: calc(30vh - 5vw);
+        text-align:left;  
+        overflow: auto;
+        width: 100%;
+        min-width: 120px;
         p{
+            margin-top: 2%;
             color: rgb(255, 255, 255);
+            width: 90%;
         }
     }
     .notes-rating-container{
-            form {        
-        .score {
-            direction: rtl;
-            unicode-bidi: bidi-override;
-            input {
-                display: none;
-            }
-
-            label {
-                color: rgb(139, 117, 66);
-                font-size: 20px;
-                transition: transform 1s ease-out;
-            }
-        }
-
-        label:hover,
-        label:hover~label {
-            color: orange;  
-        }
-
-        input:checked~label {
-            color: orange;
-        }
+        text-align: center;
+       
     }
-
+    #Rating{
+        width: calc(9vw + 9vh);
+        height: calc(1vw + 2vh);
     }
+        
+            .card-stats-container {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-start;
 
+}
+.biography-container::-webkit-scrollbar{
+    width: 3em;
+}
+.biography-container::-webkit-scrollbar-thumb {
+  background-image: url(https://www.pngmart.com/files/7/Ruby-PNG-File.png),
+    linear-gradient(100deg, transparent, transparent);
+ 
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
+}
+
+.biography-container::-webkit-scrollbar-thumb:active {
+ background-color: transparent;
+}
+
+.biography-container::-webkit-scrollbar-thumb:hover {
+  background-image: url(https://www.pngmart.com/files/7/Ruby-PNG-File.png);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.biography-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+}
+
+.biography-container::-webkit-scrollbar-track:hover, 
+.biography-container::-webkit-scrollbar-track:active {
+  background: rgba(0, 0, 0, 0);
 }
 </style>
