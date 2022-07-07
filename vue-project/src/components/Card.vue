@@ -1,8 +1,8 @@
 <script>
 import { mapState } from 'pinia';
 import { userCardsFavoritesStore } from '../stores/favorites';
-import Rating from './Rating.vue';
 import Notes from './Notes.vue';
+import Rating from './Rating.vue';
 
 export default {
     computed: {
@@ -69,8 +69,8 @@ export default {
         </section>
 
         <section class="biography-container">
-             <h3 v-if="superHero.fullName !=''">{{superHero.biography.fullName}}</h3>
-             <h3 v-else>{{superHero.name}}</h3>
+             <h3 v-if="superHero.fullName !==''">{{superHero.name}}</h3>
+             <h3 v-else>{{superHero.biography.fullName}}</h3>
              <p v-if="superHero.connections.groupAffiliation !='-'">Group Affiliation: {{superHero.connections.groupAffiliation}}</p>
              <p v-if="superHero.connections.relatives !='-'">Relatives: {{superHero.connections.relatives}}</p>
              <p v-if="superHero.work.occupation !='-'">Occupation: {{superHero.work.occupation}}</p>
@@ -81,24 +81,9 @@ export default {
             <div class="my-notes-container">
                 <Notes />
             </div>
-            <div class="rating-container">
-                <form>
-                    <div class="score">
-                        <div class="score-container">
-                            <input id="radio1" type="radio" name="estrellas" value="5">
-                            <label for="radio1">★</label>
-                            <input id="radio2" type="radio" name="estrellas" value="4">
-                            <label for="radio2">★</label>
-                            <input id="radio3" type="radio" name="estrellas" value="3">
-                            <label for="radio3">★</label>
-                            <input id="radio4" type="radio" name="estrellas" value="2">
-                            <label for="radio4">★</label>
-                            <input id="radio5" type="radio" name="estrellas" value="1">
-                            <label for="radio5">★</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
+ <div id="Rating">
+  <Rating></Rating>
+</div>
         </section>
     </div>
 
@@ -189,33 +174,6 @@ export default {
         p{
             color: rgb(255, 255, 255);
         }
-    }
-    .notes-rating-container{
-            form {        
-        .score {
-            direction: rtl;
-            unicode-bidi: bidi-override;
-            input {
-                display: none;
-            }
-
-            label {
-                color: rgb(139, 117, 66);
-                font-size: 20px;
-                transition: transform 1s ease-out;
-            }
-        }
-
-        label:hover,
-        label:hover~label {
-            color: orange;  
-        }
-
-        input:checked~label {
-            color: orange;
-        }
-    }
-
     }
 
 }
