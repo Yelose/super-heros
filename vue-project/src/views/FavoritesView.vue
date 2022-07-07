@@ -8,7 +8,7 @@ import Notes from "../components/Notes.vue";
 <template>
   <main>
     <Favorites />
-    <MyCards></MyCards>
+
     
   </main>
   <aside>
