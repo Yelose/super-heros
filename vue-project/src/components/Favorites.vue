@@ -49,8 +49,8 @@ export default {
         margin-top: 5vh;
         padding: 2px;
         display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+        justify-content: center;
+        align-items: center;
         .card-container {
             background: rgb(53, 53, 53);
             width: 14vw;

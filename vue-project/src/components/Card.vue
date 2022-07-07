@@ -126,7 +126,7 @@ export default {
     border-radius: calc(0.3vw + 0.3vh);
     margin-top: 5vh;
     padding: 2px;
-    
+
     .card-stats-container {
         display: flex;
         flex-flow: row nowrap;
@@ -175,10 +175,45 @@ export default {
         }
     }
     .biography-container{
+        height: calc(30vh - 5vw);
+        overflow: auto;
+        
         p{
             color: rgb(255, 255, 255);
+            width: 50%;
         }
     }
 
+}
+
+.biography-container::-webkit-scrollbar{
+    width: 4em;
+}
+.biography-container::-webkit-scrollbar-thumb {
+  background-image: url(https://www.pngmart.com/files/7/Ruby-PNG-File.png),
+    linear-gradient(100deg, transparent, transparent);
+ 
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
+}
+
+.biography-container::-webkit-scrollbar-thumb:active {
+  background-color: #99999900;
+}
+
+.biography-container::-webkit-scrollbar-thumb:hover {
+  background-image: url(https://www.pngmart.com/files/7/Ruby-PNG-File.png);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+ /* Estilos track de scroll */
+.biography-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+}
+
+.biography-container::-webkit-scrollbar-track:hover, 
+.biography-container::-webkit-scrollbar-track:active {
+  background: rgba(0, 0, 0, 0);
 }
 </style>
