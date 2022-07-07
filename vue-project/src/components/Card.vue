@@ -140,7 +140,7 @@ export default {
     
     .card-stats-container {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: row;
         justify-content: flex-start;
 
         .card-container {
