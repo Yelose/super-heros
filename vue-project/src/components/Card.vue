@@ -4,13 +4,31 @@ import { userCardsFavoritesStore } from '../stores/favorites';
 import Rating from './Rating.vue';
 import Notes from './Notes.vue';
 
+import Invento2 from './invento2.vue';
+
 export default {
     computed: {
         ...mapState(userCardsFavoritesStore, {
             favoritesHeroes: "favoritesHeroes"
         })
     },
-    components: { Notes, Rating }
+    methods: {
+        
+        calificar(favorites) {
+            let cont;
+            console.log(favorites)
+            cont = favorites.id[0];
+            let nombre = favorites.id.substring(1);
+            for (let i = 0; i < 5; i++) {
+                if (i < cont) {
+                    document.getElementById((i + 1) + nombre).style.color = "orange";
+                }
+            }
+            
+
+        }
+    },
+    components: { Notes, Rating, Invento2 },
 
 }
 </script>
@@ -69,11 +87,12 @@ export default {
         </section>
 
         <section class="biography-container">
-             <h3 v-if="superHero.fullName !=''">{{superHero.biography.fullName}}</h3>
-             <h3 v-else>{{superHero.name}}</h3>
-             <p v-if="superHero.connections.groupAffiliation !='-'">Group Affiliation: {{superHero.connections.groupAffiliation}}</p>
-             <p v-if="superHero.connections.relatives !='-'">Relatives: {{superHero.connections.relatives}}</p>
-             <p v-if="superHero.work.occupation !='-'">Occupation: {{superHero.work.occupation}}</p>
+            <h3 v-if="superHero.fullName != ''">{{ superHero.biography.fullName }}</h3>
+            <h3 v-else>{{ superHero.name }}</h3>
+            <p v-if="superHero.connections.groupAffiliation != '-'">Group Affiliation:
+                {{ superHero.connections.groupAffiliation }}</p>
+            <p v-if="superHero.connections.relatives != '-'">Relatives: {{ superHero.connections.relatives }}</p>
+            <p v-if="superHero.work.occupation != '-'">Occupation: {{ superHero.work.occupation }}</p>
 
         </section>
 
@@ -82,24 +101,16 @@ export default {
                 <Notes />
             </div>
             <div class="rating-container">
-                <form>
-                    <div class="score">
-                        <div class="score-container">
-                            <input id="radio1" type="radio" name="estrellas" value="5">
-                            <label for="radio1">★</label>
-                            <input id="radio2" type="radio" name="estrellas" value="4">
-                            <label for="radio2">★</label>
-                            <input id="radio3" type="radio" name="estrellas" value="3">
-                            <label for="radio3">★</label>
-                            <input id="radio4" type="radio" name="estrellas" value="2">
-                            <label for="radio4">★</label>
-                            <input id="radio5" type="radio" name="estrellas" value="1">
-                            <label for="radio5">★</label>
-                        </div>
-                    </div>
-                </form>
+                <span class="fa fa-star" id="1star" onclick="calificar(this)"></span>
+                <span class="fa fa-star" id="2star" onclick="calificar(this)"></span>
+                <span class="fa fa-star" id="3star" onclick="calificar(this)"></span>
+                <span class="fa fa-star" id="4star" onclick="calificar(this)"></span>
+                <span class="fa fa-star" id="5star" onclick="calificar(this)"></span>
+
             </div>
         </section>
+
+
     </div>
 
 </template>
@@ -137,7 +148,7 @@ export default {
     border-radius: calc(0.3vw + 0.3vh);
     margin-top: 5vh;
     padding: 2px;
-    
+
     .card-stats-container {
         display: flex;
         flex-flow: row nowrap;
@@ -185,36 +196,39 @@ export default {
             justify-content: space-between;
         }
     }
-    .biography-container{
-        p{
+
+    .biography-container {
+        p {
             color: rgb(255, 255, 255);
         }
     }
-    .notes-rating-container{
-            form {        
-        .score {
-            direction: rtl;
-            unicode-bidi: bidi-override;
-            input {
-                display: none;
+
+    .notes-rating-container {
+        form {
+            .score {
+                direction: rtl;
+                unicode-bidi: bidi-override;
+
+                input {
+                    display: none;
+                }
+
+                label {
+                    color: rgb(139, 117, 66);
+                    font-size: 20px;
+                    transition: transform 1s ease-out;
+                }
             }
 
-            label {
-                color: rgb(139, 117, 66);
-                font-size: 20px;
-                transition: transform 1s ease-out;
+            label:hover,
+            label:hover~label {
+                color: orange;
+            }
+
+            input:checked~label {
+                color: orange;
             }
         }
-
-        label:hover,
-        label:hover~label {
-            color: orange;  
-        }
-
-        input:checked~label {
-            color: orange;
-        }
-    }
 
     }
 
