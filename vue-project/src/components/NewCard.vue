@@ -84,17 +84,18 @@
 .newcard-container {
     width: calc(83vw - 150px);
     padding: 0 3vw 0 3vw;
+    
     .newcard-item-container {
         display: flex;
         flex-flow: row nowrap;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
         border: 3px solid #CFA25B;
         border-radius: calc(0.3vw + 0.3vh);
         margin-top: 5vh;
         padding: 2px;
         background-color: rgba(207, 163, 91, 0.267);
-
+        
         .card-container {
             background: #362810;
             width: 14vw;
@@ -102,6 +103,7 @@
             border-radius: 4%;
             max-width: 130px;
             max-height: 205px;
+            justify-content: center;
 
             .card-frame {
                 width: 100%;
@@ -115,7 +117,7 @@
                 background-size: cover;
                 background-position: center;
                 border-radius: 4%;
-         
+               
                 #add-new-Name {
                     width: 100%;
                     text-align: center;
@@ -131,7 +133,7 @@
             
             .add-img {
                 width: 2vw;
-                margin:2vw 2vw 4vw 2vw;
+                margin:1vw 1vw 2vw 1vw;
             }
         }
     }

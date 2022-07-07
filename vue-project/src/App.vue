@@ -28,6 +28,8 @@ import Copiright from "./components/Copiright.vue";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+  
 }
 html {
   cursor: url("/src/assets/img/cursorflecha.png"), pointer;
