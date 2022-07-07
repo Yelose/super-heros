@@ -27,6 +27,7 @@ div {
         .score {
             direction: rtl;
             unicode-bidi: bidi-override;
+            margin-left: 500px;
             input {
                 display: none;
             }

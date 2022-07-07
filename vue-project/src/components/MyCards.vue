@@ -64,10 +64,6 @@ export default {
     overflow: auto;
     width: calc(14vw + 150px);
 
-.my-cards-container::-webkit-scrollbar{
-    border-radius: 4px;
-}
-
     header {
         top: calc(12vh + 5vw);
         right: 11vw;
@@ -153,7 +149,36 @@ export default {
     }
 
 }
+
+.my-cards-container::-webkit-scrollbar{
+    border-radius: 2px;
+}
+.my-cards-container::-webkit-scrollbar-thumb {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ01w0TW20r-sUaqFLD2E8rF4WbGnudBsYxQ&usqp=CAU);
+  border-radius: 4px;
+}
+
+.my-cards-container::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.my-cards-container::-webkit-scrollbar-thumb:hover {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ01w0TW20r-sUaqFLD2E8rF4WbGnudBsYxQ&usqp=CAU);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+ /* Estilos track de scroll */
+.my-cards-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+}
+
+.my-cards-container::-webkit-scrollbar-track:hover, 
+.my-cards-container::-webkit-scrollbar-track:active {
+  background: rgba(0, 0, 0, 0);
+}
 </style>
+
 
 <!-- <template>
 

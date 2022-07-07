@@ -74,32 +74,8 @@ export default {
              <p v-if="superHero.connections.groupAffiliation !='-'">Group Affiliation: {{superHero.connections.groupAffiliation}}</p>
              <p v-if="superHero.connections.relatives !='-'">Relatives: {{superHero.connections.relatives}}</p>
              <p v-if="superHero.work.occupation !='-'">Occupation: {{superHero.work.occupation}}</p>
-
         </section>
-
-        <section class="notes-rating-container">
-            <div class="my-notes-container">
-                <Notes />
-            </div>
-            <div class="rating-container">
-                <form>
-                    <div class="score">
-                        <div class="score-container">
-                            <input id="radio1" type="radio" name="estrellas" value="5">
-                            <label for="radio1">★</label>
-                            <input id="radio2" type="radio" name="estrellas" value="4">
-                            <label for="radio2">★</label>
-                            <input id="radio3" type="radio" name="estrellas" value="3">
-                            <label for="radio3">★</label>
-                            <input id="radio4" type="radio" name="estrellas" value="2">
-                            <label for="radio4">★</label>
-                            <input id="radio5" type="radio" name="estrellas" value="1">
-                            <label for="radio5">★</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
+        <Rating />
     </div>
 
 </template>
