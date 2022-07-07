@@ -1,8 +1,8 @@
 <script>
 import { mapState } from 'pinia';
 import { userCardsFavoritesStore } from '../stores/favorites';
-import Rating from './Rating.vue';
 import Notes from './Notes.vue';
+import Rating from './Rating.vue';
 
 import Invento2 from './invento2.vue';
 
@@ -87,12 +87,11 @@ export default {
         </section>
 
         <section class="biography-container">
-            <h3 v-if="superHero.fullName != ''">{{ superHero.biography.fullName }}</h3>
-            <h3 v-else>{{ superHero.name }}</h3>
-            <p v-if="superHero.connections.groupAffiliation != '-'">Group Affiliation:
-                {{ superHero.connections.groupAffiliation }}</p>
-            <p v-if="superHero.connections.relatives != '-'">Relatives: {{ superHero.connections.relatives }}</p>
-            <p v-if="superHero.work.occupation != '-'">Occupation: {{ superHero.work.occupation }}</p>
+             <h3 v-if="superHero.fullName !==''">{{superHero.name}}</h3>
+             <h3 v-else>{{superHero.biography.fullName}}</h3>
+             <p v-if="superHero.connections.groupAffiliation !='-'">Group Affiliation: {{superHero.connections.groupAffiliation}}</p>
+             <p v-if="superHero.connections.relatives !='-'">Relatives: {{superHero.connections.relatives}}</p>
+             <p v-if="superHero.work.occupation !='-'">Occupation: {{superHero.work.occupation}}</p>
 
         </section>
 
@@ -100,14 +99,13 @@ export default {
             <div class="my-notes-container">
                 <Notes />
             </div>
-            <div class="rating-container">
-                <span class="fa fa-star" id="1star" onclick="calificar(this)"></span>
-                <span class="fa fa-star" id="2star" onclick="calificar(this)"></span>
-                <span class="fa fa-star" id="3star" onclick="calificar(this)"></span>
-                <span class="fa fa-star" id="4star" onclick="calificar(this)"></span>
-                <span class="fa fa-star" id="5star" onclick="calificar(this)"></span>
+ <div id="Rating">
 
-            </div>
+  
+  <p><strong></strong></p>
+  <Rating></Rating>
+
+</div>
         </section>
 
 
@@ -230,7 +228,17 @@ export default {
             }
         }
 
+        label:hover,
+        label:hover~label {
+            color: orange;  
+        }
+
+        input:checked~label {
+            color: orange;
+        }
     }
 
-}
+    } 
+
+
 </style>
