@@ -69,7 +69,7 @@ export default {
         </section>
 
         <section class="biography-container">
-             <h3 v-if="superHero.fullName !=''">{{superHero.biography.fullName}}</h3>
+             <h3 v-if="superHero.biography.fullName !=''">{{superHero.biography.fullName}}</h3>
              <h3 v-else>{{superHero.name}}</h3>
              <p v-if="superHero.connections.groupAffiliation !='-'">Group Affiliation: {{superHero.connections.groupAffiliation}}</p>
              <p v-if="superHero.connections.relatives !='-'">Relatives: {{superHero.connections.relatives}}</p>
