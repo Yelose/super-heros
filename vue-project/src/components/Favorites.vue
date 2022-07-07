@@ -51,7 +51,7 @@ export default {
         padding: 2px;
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: center;
         .card-container {
             background: rgb(53, 53, 53);
             width: 14vw;
