@@ -37,7 +37,7 @@ export default {
             this.superHeroesShort = this.shortenSuperHeroes(this.superHeroesShort);
         },
         ...mapActions(userCardsFavoritesStore, ["addFavorite"]),
-        selectFavorite(superHero) {   
+        selectFavorite(superHero) {
             // this.favoritesHeroes.push(superHero)
             //this.newSuperToAdd = superHero;
             this.addFavorite(superHero)
@@ -117,8 +117,8 @@ export default {
     <main>
         <div class="home-container">
             <input type="text" placeholder="search" v-on:keyup="searchSuperHeroes()" v-model="superHeroSearch" />
-            <div class="card-container" v-bind:style="{ background: superHero.color }" v-for="superHero in superHeroesShort"
-                v-on:click="selectFavorite(superHero)">
+            <div class="card-container" v-bind:style="{ background: superHero.color }"
+                v-for="superHero in superHeroesShort">
                 <div class="card-frame">
                     <h4>{{ superHero.name }}</h4>
                     <img class="hero-img-md" v-bind:src="superHero.images.sm" alt="">
@@ -126,16 +126,20 @@ export default {
                         <section class="stat-bar">
                             <img class="stat-img" src="/src/assets/img/espada2.png" alt="">
                             <div class="colorless-bar">
-                                <div class="attack-bar" v-bind:style="{ width: superHero.powerstats.strength + '%' }"></div>
+                                <div class="attack-bar" v-bind:style="{ width: superHero.powerstats.strength + '%' }">
+                                </div>
                             </div>
                         </section>
                         <section class="stat-bar">
                             <img class="stat-img" src="/src/assets/img/escudo2.png" alt="">
                             <div class="colorless-bar">
-                                <div class="def-bar" v-bind:style="{ width: superHero.powerstats.durability + '%' }"></div>
+                                <div class="def-bar" v-bind:style="{ width: superHero.powerstats.durability + '%' }">
+                                </div>
                             </div>
                         </section>
                     </div>
+                    <img class="add-star" src="/src/assets/img/addstar.png" alt=""
+                        v-on:click="selectFavorite(superHero)">
                 </div>
             </div>
         </div>
@@ -150,6 +154,7 @@ export default {
     width: calc(83vw - 150px);
     padding: 3vw;
     gap: 1%;
+
     input {
         position: fixed;
         right: 0;
@@ -160,6 +165,7 @@ export default {
         width: 16vw;
         z-index: 102;
     }
+
     .card-container {
         background: rgb(53, 53, 53);
         width: 14vw;
@@ -168,6 +174,7 @@ export default {
         border-radius: 4%;
         max-width: 130px;
         max-height: 205px;
+
         .card-frame {
             width: 100%;
             height: 100%;
@@ -180,37 +187,58 @@ export default {
             background-size: cover;
             background-position: center;
             border-radius: 4%;
+
             h4 {
                 margin-top: 17%;
                 font-size: clamp(8px, 1.5vw, 15px);
                 color: #D9D9D9;
                 font-weight: 100;
             }
+
             .hero-img-md {
                 width: 60%;
                 margin-bottom: 4%;
             }
+
+            .add-star {
+                width: 20%;
+                margin-left: 50%;
+                overflow: hidden;
+                filter: saturate(70%)
+            }
+
+            .add-star:hover {
+                filter: saturate(180%);
+               -webkit-transform:scale(1.3);
+               transform:scale(1.3);
+            }
+
         }
     }
 }
+
 .card-stats-container {
     width: 65%;
     bottom: 0;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+
     .stat-bar {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-bottom: 3%;
+
         .stat-img {
             width: 10%;
         }
+
         .attack-bar {
             background-color: #650f0f;
             height: 100%;
         }
+
         .colorless-bar {
             width: 80%;
             height: 100%;
@@ -218,6 +246,7 @@ export default {
             border-radius: 2vw;
             overflow: hidden;
         }
+
         .def-bar {
             background-color: rgb(34, 34, 170);
             height: 100%;

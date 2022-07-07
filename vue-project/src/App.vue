@@ -46,7 +46,7 @@ body {
 }
 a,
 a:hover,
-.card-frame {
+.add-star {
   cursor: url("/src/assets/img/cursordedo.png"), help;
 }
 
