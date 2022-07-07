@@ -4,7 +4,7 @@ import { userCardsFavoritesStore } from '../stores/favorites';
 import Notes from './Notes.vue';
 import Rating from './Rating.vue';
 
-import Invento2 from './invento2.vue';
+
 
 export default {
     computed: {
@@ -28,7 +28,7 @@ export default {
 
         }
     },
-    components: { Notes, Rating, Invento2 },
+    components: { Notes, Rating },
 
 }
 </script>
