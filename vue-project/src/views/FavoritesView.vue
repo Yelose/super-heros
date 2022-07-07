@@ -7,7 +7,7 @@ import Notes from "../components/Notes.vue";
 <template>
   <main>
     <Favorites />
-    git
+    
     
   </main>
   <aside>
