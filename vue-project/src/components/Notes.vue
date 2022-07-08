@@ -39,8 +39,9 @@
             margin-top: 4%;
             border: none;
             resize: none;
-          
+            outline: none;
      }
+
      p{
       font-family:'Kenia', cursive;
       color: #FFF27D;
