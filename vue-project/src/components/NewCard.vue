@@ -79,6 +79,10 @@
         padding: 1vh 1vw;
         order: 100000;
     }
+    button:hover{
+        background-color: rgba(207, 163, 91, 0.267);
+         
+    }
 }
   
 .newcard-container {

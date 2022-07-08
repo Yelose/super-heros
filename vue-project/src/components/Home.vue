@@ -204,11 +204,11 @@ export default {
                 width: 20%;
                 margin-left: 50%;
                 overflow: hidden;
-                filter: saturate(70%)
+                filter: saturate(30%)
             }
 
             .add-star:hover {
-                filter: saturate(180%);
+                filter: saturate(150%);
                -webkit-transform:scale(1.3);
                transform:scale(1.3);
             }

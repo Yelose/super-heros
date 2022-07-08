@@ -107,6 +107,7 @@ export default {
                         width: 100%;
                         height: 100%;
                     }
+                    
                 }
             }
 
@@ -125,6 +126,7 @@ export default {
                     align-items: center;
                     p {
                         font-size: clamp(9px, 1.5vw, 25px);
+                        font-family:'Kelly Slab';
                     }
                 }
             }
@@ -146,6 +148,10 @@ export default {
                         height: 65%;
                         background-color: white;
                         padding: 5%;
+                        border-radius:20%;
+                    }
+                    img:hover{
+                        box-shadow: 0px 0px 5px 5px #ec731e;
                     }
                 }
             }

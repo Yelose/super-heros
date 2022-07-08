@@ -85,7 +85,9 @@ export default {
         transition: color .2s ease-out;
 
         &:hover {
-            cursor: pointer;
+             cursor: url("/src/assets/img/cursordedo.png"), pointer;
+             transform:scale(1.3);
+          
         }
 
         &.is-selected {
