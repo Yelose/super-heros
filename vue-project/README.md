@@ -1,10 +1,11 @@
 # vue-project
 
-This template should help get you started developing with Vue 3 in Vite.
+This project was made with Vue.js and it is part of Factoría F5 full stack Bootcamp.
 
-<img src="src/assets/home-screenshoot.png" width="100%">
-<img src="src/assets/stats-screenshoot.png" width="100%">
-<img src="src/assets/favorites-screenshoot.png" width="100%">
+
+<img src="https://github.com/Yelose/super-heros/blob/develop/vue-project/src/assets/img/home-screenshoot.png" width="100%">
+<img src="https://github.com/Yelose/super-heros/blob/develop/vue-project/src/assets/img/stats-screenshoot.png" width="100%">
+<img src="https://github.com/Yelose/super-heros/blob/develop/vue-project/src/assets/img/favorites-screenshoot.png" width="100%">
 
 ## Project Setup
 
